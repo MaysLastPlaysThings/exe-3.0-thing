@@ -2911,7 +2911,6 @@ class PlayState extends MusicBeatState
 			return;
 		}
 
-    #if hxCodec
 		var video:VideoHandler = new VideoHandler();
 		video.playVideo(fileName);
 		video.finishCallback = function()
@@ -2919,9 +2918,6 @@ class PlayState extends MusicBeatState
 			startAndEnd();
 			return;
 		}
-		#elseif hxvlc
-		//lol
-		#end
 		#else
 		FlxG.log.warn('Platform not supported!');
 		startAndEnd();
@@ -6939,7 +6935,6 @@ class PlayState extends MusicBeatState
 
 	function chromaVideo(name:String)
 	{
-	  #if hxCodec
 		var video:VideoSprite = new VideoSprite(0,0);
 		video.scrollFactor.set();
 		video.cameras = [camHUD];
@@ -6957,9 +6952,6 @@ class PlayState extends MusicBeatState
 			video.visible = true;
 		}
 		add(video);
-		#elseif hxvlc
-		//aaaaaa
-		#end
 	}
 
 	function majinSaysFuck(numb:Int):Void
