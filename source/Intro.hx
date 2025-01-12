@@ -29,7 +29,13 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.app.Application;
 import openfl.Assets;
+#if (hxCodec == "2.6.0")
+import vlc.MP4Handler;
+#if (hxCodec >= "2.6.1")
 import hxcodec.VideoHandler;
+#elseif (hxCodec >= "3.0.0)
+import flixel.FlxVideo as VideoHandler;
+#end
 
 using StringTools;
 
@@ -54,6 +60,7 @@ class Intro extends MusicBeatState
 			FlxG.mouse.visible = false;
 
 			var video = new VideoHandler();
+			#if (hxCodec >= "2.6.1")
 			video.canSkip = false;
 			video.finishCallback = function()
 			{
@@ -75,6 +82,27 @@ class Intro extends MusicBeatState
 				});
 			}
 			video.playVideo(Paths.video('HaxeFlixelIntro'));
+			#else
+			video.canSkip = false;
+			video.onEndReached.add(function()
+            {
+			 FlxG.sound.muteKeys = TitleState.muteKeys;
+	         FlxG.sound.volumeDownKeys = TitleState.volumeDownKeys;
+	         FlxG.sound.volumeUpKeys = TitleState.volumeUpKeys;
+		     FlxTween.tween(div, {alpha: 1}, 3.4, {
+	         ease: FlxEase.quadInOut,
+		     onComplete: function(twn:FlxTween)
+	        {
+		     FlxTween.tween(div, {alpha: 0}, 3.4, {
+			 ease: FlxEase.quadInOut,
+		     onComplete: function(twn:FlxTween)
+			{
+		      MusicBeatState.switchState(new TitleState());
+		  }
+	     });
 		}
+	   });
+	  }, true);
+     }
 	}
 }
