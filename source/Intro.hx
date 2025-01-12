@@ -56,7 +56,7 @@ class Intro extends MusicBeatState
 			var video = new VideoHandler();
 			#elseif hxvlc
 			#end
-			//video.canSkip = false; //I forgot skip shit on hxCodec/hxvlc 
+			video.canSkip = false;
 			video.finishCallback = function()
 			{
 				FlxG.sound.muteKeys = TitleState.muteKeys;
