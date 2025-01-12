@@ -17,26 +17,12 @@ jobs:
       - name: Install Haxelib
         run: |
           haxelib setup C:/haxelib
-          haxelib install lime 7.9.0
-          haxelib install flixel 4.11.0
-          haxelib install flixel-addons 2.11.0
-          haxelib install flixel-ui
-          haxelib install hscript
-          haxelib install hxCodec 2.6.1
-          haxelib install newgrounds
-          haxelib install openfl
-          haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
-          haxelib install linc_luajit
-
-      - name: Set Library Versions
-        run: |
-          haxelib set lime 7.9.0
-          haxelib set flixel 4.11.0
-          haxelib set flixel-addons 2.11.0
-          haxelib set hxCodec 2.6.1
+          haxe -cp ./setup -D analyzer-optimize -main Main --interp
+          haxelib install hxcpp-debug-server
+          haxelib list
 
       - name: Compile
-        run: haxelib run lime build Project.xml windows
+        run: haxelib run lime build windows
 
       - name: Publish Artifact
         uses: actions/upload-artifact@main
