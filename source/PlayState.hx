@@ -2902,9 +2902,7 @@ class PlayState extends MusicBeatState
 	var fileName:String = #if MODS_ALLOWED Paths.modFolders('videos/' + name + '.' + Paths.VIDEO_EXT); #else ''; #end
 	#if sys
 	if (FileSystem.exists(fileName))
-	{
 		foundFile = true;
-	}
 	#end
 
 	if (!foundFile)
@@ -2927,7 +2925,7 @@ class PlayState extends MusicBeatState
 
     #if hxCodec
 		var video:VideoHandler = new VideoHandler();
-		#elseif hxvlc
+		//#elseif hxvlc
 		//lol
 		#end
 		video.playVideo(fileName);
@@ -6957,7 +6955,7 @@ class PlayState extends MusicBeatState
 	{
 	  #if hxCodec
 		var video:VideoSprite = new VideoSprite(0,0);
-		#elseif hxvlc
+		//#elseif hxvlc
 		//aaaaaa
 		#end
 		video.scrollFactor.set();
