@@ -54,9 +54,6 @@ class Intro extends MusicBeatState
 
       #if hxCodec
 			var video = new VideoHandler();
-			#elseif hxvlc
-			var video = new FlxVideo();
-			#end
 			video.canSkip = false;
 			video.finishCallback = function()
 			{
@@ -77,6 +74,9 @@ class Intro extends MusicBeatState
 					}
 				});
 			}
+			#elseif hxvlc
+			//fuck
+			#end
 			video.playVideo(Paths.video('HaxeFlixelIntro'));
 		}
 	}
