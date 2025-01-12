@@ -2943,6 +2943,7 @@ class PlayState extends MusicBeatState
 		}
 		#end
 	}
+}
 
 	function startAndEnd()
 	{
