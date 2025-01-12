@@ -97,7 +97,7 @@
 	<haxelib name="linc_luajit" if="LUA_ALLOWED"/>
 	<haxelib name="faxe" if='switch'/>
 	<haxelib name="discord_rpc" if="desktop"/>
-	<haxelib name="hxCodec" if="VIDEO_ALLOWED" />
+	<haxelib name="hxCodec" />
 
 	<haxedef name="no-deprecation-warnings"/>
 
