@@ -31,7 +31,7 @@ import lime.app.Application;
 import openfl.Assets;
 #if (hxCodec == "2.6.0")
 import vlc.MP4Handler;
-#if (hxCodec >= "2.6.1")
+#elseif (hxCodec >= "2.6.1")
 import hxcodec.VideoHandler;
 #elseif (hxCodec >= "3.0.0)
 import hxcodec.flixel.FlxVideo as VideoHandler;
