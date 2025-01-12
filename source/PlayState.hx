@@ -2912,14 +2912,12 @@ class PlayState extends MusicBeatState
 		fileName = Paths.video(name);
 		#if sys
 		if (FileSystem.exists(fileName))
-		{
 		#else
 		if (OpenFlAssets.exists(fileName))
-		{
 		#end
 			foundFile = true;
 		}
-		} if (foundFile)
+		if (foundFile)
 		{
 			inCutscene = true;
 			var bg = new FlxSprite(-FlxG.width, -FlxG.height).makeGraphic(FlxG.width * 3, FlxG.height * 3, FlxColor.BLACK);
