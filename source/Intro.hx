@@ -52,8 +52,11 @@ class Intro extends MusicBeatState
 
 			FlxG.mouse.visible = false;
 
-			var video = new MP4Handler();
-			video.canSkip = false;
+      #if hxCodec
+			var video = new VideoHandler();
+			#elseif hxvlc
+			#end
+			//video.canSkip = false; //I forgot skip shit on hxCodec/hxvlc 
 			video.finishCallback = function()
 			{
 				FlxG.sound.muteKeys = TitleState.muteKeys;
