@@ -2895,7 +2895,7 @@ class PlayState extends MusicBeatState
 		char.y += char.positionArray[1];
 	}
 
-	public function startVideo(name:String)	 
+	public function startVideo(name:String)
 	{
 		#if VIDEOS_ALLOWED					 
 		inCutscene = true;	
@@ -2911,7 +2911,11 @@ class PlayState extends MusicBeatState
 			return;
 		}
 
+    #if hxCodec
 		var video:VideoHandler = new VideoHandler();
+		#elseif hxvlc
+		//lol
+		#end
 		video.playVideo(fileName);
 		video.finishCallback = function()
 		{
@@ -6937,7 +6941,7 @@ class PlayState extends MusicBeatState
 	{
 	  #if hxCodec
 		var video:VideoSprite = new VideoSprite(0,0);
-		//#elseif hxvlc
+		#elseif hxvlc
 		//aaaaaa
 		#end
 		video.scrollFactor.set();
