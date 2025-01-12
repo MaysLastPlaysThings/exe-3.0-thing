@@ -2913,15 +2913,15 @@ class PlayState extends MusicBeatState
 
     #if hxCodec
 		var video:VideoHandler = new VideoHandler();
-		#elseif hxvlc
-		//lol
-		#end
 		video.playVideo(fileName);
 		video.finishCallback = function()
 		{
 			startAndEnd();
 			return;
 		}
+		#elseif hxvlc
+		//lol
+		#end
 		#else
 		FlxG.log.warn('Platform not supported!');
 		startAndEnd();
@@ -6941,9 +6941,6 @@ class PlayState extends MusicBeatState
 	{
 	  #if hxCodec
 		var video:VideoSprite = new VideoSprite(0,0);
-		#elseif hxvlc
-		//aaaaaa
-		#end
 		video.scrollFactor.set();
 		video.cameras = [camHUD];
 		video.shader = new GreenScreenShader();
@@ -6960,6 +6957,9 @@ class PlayState extends MusicBeatState
 			video.visible = true;
 		}
 		add(video);
+		#elseif hxvlc
+		//aaaaaa
+		#end
 	}
 
 	function majinSaysFuck(numb:Int):Void
