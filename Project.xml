@@ -99,6 +99,8 @@
 	<haxelib name="discord_rpc" if="desktop"/>
 	<haxelib name="hxCodec" if="VIDEO_ALLOWED" />
 
+	<haxedef name="no-deprecation-warnings"/>
+
 	<!--In case you want to use nape with flixel-->
 	<!--<haxelib name="nape-haxe4" />-->
 
