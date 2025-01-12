@@ -13,6 +13,7 @@ import flixel.text.FlxText;
 import flixel.FlxSprite;
 import flixel.FlxCamera;
 import sys.FileSystem;
+import hxcodec.VideoHandler;
 
 class GameOverSubstate extends MusicBeatSubstate
 {
