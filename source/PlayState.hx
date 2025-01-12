@@ -80,6 +80,15 @@ import Discord.DiscordClient;
 import sys.FileSystem;
 #end
 
+#if VIDEOS_ALLOWED
+#if hxCodec
+import hxcodec.VideoHandler;
+import hxcodec.VideoSprite;
+#elseif hxvlc
+//not now
+#end
+#end
+
 typedef BasicSpeedChange =
 {
 	var time:Float;
@@ -2927,33 +2936,31 @@ class PlayState extends MusicBeatState
 			bg.cameras = [camHUD];
 			add(bg);
 
-			(new FlxVideo(fileName)).finishCallback = function()
-			{
-				remove(bg);
-				if (endingSong)
-				{
-					endSong();
-				}
-				else
-				{
-					startCountdown();
-				}
-			}
+    #if hxCodec
+		var video:VideoHandler = new VideoHandler();
+		#elseif hxvlc
+		//lol
+		#end
+		video.playVideo(fileName);
+		video.finishCallback = function()
+		{
+			startAndEnd();
 			return;
 		}
 		else
 		{
 			FlxG.log.warn('Couldnt find video file: ' + fileName);
+		startAndEnd();
 		}
 		#end
-		if (endingSong)
-		{
+	}
+
+	function startAndEnd()
+	{
+		if(endingSong)
 			endSong();
-		}
 		else
-		{
 			startCountdown();
-		}
 	}
 
 	var startTimer:FlxTimer;
@@ -6958,7 +6965,11 @@ class PlayState extends MusicBeatState
 
 	function chromaVideo(name:String)
 	{
-		var video = new MP4Sprite(0, 0);
+	  #if hxCodec
+		var video:VideoSprite = new VideoSprite(0,0);
+		#elseif hxvlc
+		//aaaaaa
+		#end
 		video.scrollFactor.set();
 		video.cameras = [camHUD];
 		video.shader = new GreenScreenShader();
