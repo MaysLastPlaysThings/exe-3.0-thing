@@ -27,7 +27,7 @@ class EncoreState extends MusicBeatState
 
 	var curSelected:Int = 0;
 
-	var songArray:Array<String> = ["too-slow", "you-cant-run"];
+	var songArray:Array<String> = ["too-slow", "you-cant-run", "triple-trouble", "sunshine"];
 
 	var boxgrp:FlxTypedSpriteGroup<FlxSprite>;
 

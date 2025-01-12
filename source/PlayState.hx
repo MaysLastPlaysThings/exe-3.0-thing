@@ -3,6 +3,7 @@ package;
 // hello welcome to code for sonic.sex 2.5!!!!!!!!!!!!!!!!!!!!!!!!! i am currently shitting
 // HOLY FUCKLES ITS KNUCKLES
 // HIS NAME IS CHAOTIX!!!
+import openfl.display.Window;
 import flixel.system.scaleModes.RatioScaleMode;
 import FunkinLua;
 import Section.SwagSection;
@@ -588,17 +589,15 @@ class PlayState extends MusicBeatState
 
 		// String that contains the mode defined here so it isn't necessary to call changePresence for each mode
 		if (isStoryMode)
-		{
 			detailsText = "Story Mode: " + WeekData.getCurrentWeek().weekName;
-		}
 		else
-		{
 			detailsText = "Freeplay";
-			songRPC = '???';
-		}
 
 		// String for when the game is paused
 		detailsPausedText = "Paused - " + detailsText;
+
+		if (CharSongList.charactersUnlocked.contains(SONG.song.toLowerCase()))
+			songRPC = SONG.song.toLowerCase().replace("-", " ");
 		#end
 
 		// I KNOW BLACKFUCK EXISTS BUT I AM SERIOUSLY STUPID
@@ -1558,10 +1557,11 @@ class PlayState extends MusicBeatState
 				hogOverlay = new BGSprite('hog/overlay', -800, -300, 1.1, 0.9);
 				hogOverlay.scale.x = 1.25;
 				hogOverlay.scale.y = 1.25;
-			case 'requital':
-			// lol lmao
-			case 'requite':
-			// lol lmao
+			case 'requite':					
+					var bg = new FlxSprite(-750, 50).loadGraphic(Paths.image("requital/reqbg"));
+					bg.scale.set(1.40, 1.40);
+					bg.antialiasing = false;
+					add(bg);
 			default:
 				// oOOOoO nothing!
 		}
@@ -2274,7 +2274,7 @@ class PlayState extends MusicBeatState
 		blackFuck.cameras = [camOther];
 		topBar.cameras = [camOther];
 		bottomBar.cameras = [camOther];
-
+		
 		var centerP = new FlxSprite(0, 0);
 		centerP.screenCenter(XY);
 
@@ -2323,6 +2323,8 @@ class PlayState extends MusicBeatState
 		{
 			switch (daSong)
 			{
+				case "final-escape":
+					camHUD.alpha = 0;
 				case 'forestall-desire':
 					playerStrums.forEach(function(spr:FlxSprite)
 					{
@@ -2332,7 +2334,6 @@ class PlayState extends MusicBeatState
 					{
 						spr.x += 645;
 					});
-					trace("mhm");
 					startCountdown();
 				case 'personel':
 					camGame.alpha = 0;
@@ -5934,6 +5935,7 @@ class PlayState extends MusicBeatState
 					FlxG.save.data.charactersUnlocked.push("finale");
 					FlxG.save.data.tripleTroubleFinnished = "true";
 					FlxG.save.flush();
+
 					Sys.exit(1);
 				}
 			case "final-escape":

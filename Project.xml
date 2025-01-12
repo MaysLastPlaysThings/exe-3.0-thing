@@ -2,7 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Friday Night Funkin': Vs Sonic.exe" file="Sonic" packageName="com.504brandon.exenew" package="com.504brandon.exenew" main="Main" version="0.2.7" company="504brandon" />
+	<app title="Friday Night Funkin': Vs Sonic.exe - The 100000000000000th Restoration" file="Sonic" packageName="com.kittysleeper.exenew" package="com.kittysleeper.exenew" main="Main" version="0.2.7" company="kittysleeper" />
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
 	<set name="APP_ID" value="0x0100f6c013bbc000" />

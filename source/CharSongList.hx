@@ -2,14 +2,17 @@ package;
 
 class CharSongList
 {
+	static var loaded:Bool = false;
+
 	public static var data:Map<String, Array<String>> = [
-		"finale" => ["final-escape"],
 		"majin" => ["endless", "endless-og"],
 		"lord x" => ["cycles"],
 		"tails doll" => ["sunshine", "soulless"],
+		"requital" => ["forestall-desire", "deception"],
 		"fleetway" => ["chaos"],
 		"fatalerror" => ["fatality"],
 		"chaotix" => ["my-horizon", "our-horizon"],
+		"yourself..." => ["yourself"],
 		"curse" => ["malediction"],
 		"starved" => ["prey", "fight-or-flight"],
 		"xterion" => ["substantial", "digitalized"],
@@ -18,17 +21,16 @@ class CharSongList
 		"sunky" => ["milk"],
 		"sanic" => ["too-fest"],
 		"coldsteel" => ["personel"],
-    "mrsys" => ["unbeatable"]
 	];
 
 	public static var characters:Array<String> = [
-		// just for ordering
-		"finale",
 		"majin",
 		"lord x",
 		"tails doll",
+		"requital",
 		"fleetway",
 		"fatalerror",
+		"yourself...",
 		"chaotix",
 		"curse",
 		"starved",
@@ -38,15 +40,16 @@ class CharSongList
 		"sunky",
 		"sanic",
 		"coldsteel",
-    "mrsys"
 	];
 
 	public static var charactersUnlocked:Array<String> = [
-		// just for ordering
+		// just for locks
 		"majin",
 		"lord x",
 		"tails doll",
+		"requital",
 		"fleetway",
+		"yourself...",
 		"fatalerror",
 		"chaotix",
 		"curse",
@@ -57,18 +60,20 @@ class CharSongList
 		"sunky",
 		"sanic",
 		"coldsteel",
-    "mrsys"
 	];
 
 	public static function init()
 	{
-		var unlockedShit:Array<String> = flixel.FlxG.save.data.charactersUnlocked;
-
-    trace(unlockedShit);
-
-		for (str in unlockedShit)
+		if (!loaded)
 		{
+			loaded = true;
+			
+			var unlockedShit:Array<String> = flixel.FlxG.save.data.charactersUnlocked;
+
+			for (str in unlockedShit)
+			{
 				charactersUnlocked.push(str);
+			}
 		}
 	}
 

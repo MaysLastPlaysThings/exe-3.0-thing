@@ -74,7 +74,7 @@ class PracticeSubState extends MusicBeatSubstate
 		}
 		difficultyChoices.push('BACK');
 
-        warningThingy = new FlxSprite(0, 0).loadGraphic(Paths.image("pauseStuff/practice/instructions"));
+        warningThingy = new FlxSprite().loadGraphic(Paths.image("pauseStuff/practice/instructions"));
 		warningThingy.alpha = 0;
         add(warningThingy);
 		FlxTween.tween(warningThingy, {alpha: 1}, 0.2, {ease: FlxEase.quadOut});
@@ -100,11 +100,9 @@ class PracticeSubState extends MusicBeatSubstate
             var offset:Float = 108 - (Math.max(menuItems.length, 4) - 4) * 80;
             var menuItem:FlxSprite = new FlxSprite(0, (i * 140)  + offset);
 
-			var actualText:FlxSprite = new FlxSprite(FlxG.width + 400 + 80 * i, FlxG.height / 2 + 70 + 100 * i).loadGraphic(Paths.image(StringTools.replace("pauseStuff/practice/" + menuItems[i], " ", "")));
+			var actualText:FlxSprite = new FlxSprite(-400 + (40 * i), (FlxG.height * 0.6) + (i * 100)).loadGraphic(Paths.image(StringTools.replace("pauseStuff/practice/" + menuItems[i], " ", "")));
 			actualText.ID = i;
-			actualText.x += (i + 1) * 480;
-			actualText.y = FlxG.height / 2 + 70 + 100 * i + 5;
-			FlxTween.tween(actualText, {x: FlxG.width - 400 - 80 * i + 25}, 0.2, {ease: FlxEase.quadOut});
+			FlxTween.tween(actualText, {x: 15 + (i * 50)}, 0.2, {ease: FlxEase.quadOut});
 			add(actualText);
     	}
 

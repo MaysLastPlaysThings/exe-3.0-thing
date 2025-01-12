@@ -98,8 +98,6 @@ class FreeplayState extends MusicBeatState // REWRITE FREEPLAY!?!?!? HELL YEA!!!
 					{
 						var char:FlxSkewedSprite = new FlxSkewedSprite(0, i * 415);
 						char.loadGraphic(Paths.image('fpstuff/' + charArray[i].toLowerCase()));
-						if (charArray[i].toLowerCase() == "mrsys")
-							char.color = FlxColor.RED;
 						boxgrp.add(char);
 						char.ID = i;
 						char.setGraphicSize(Std.int(box.width / 1.7));
