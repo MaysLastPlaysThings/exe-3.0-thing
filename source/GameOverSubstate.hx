@@ -18,7 +18,7 @@ import vlc.MP4Handler as VideoHandler;
 #if (hxCodec >= "2.6.1")
 import hxcodec.VideoHandler;
 #elseif (hxCodec >= "3.0.0")
-import flixel.FlxVideo as VideoHandler;
+import hxcodec.flixel.FlxVideo as VideoHandler;
 #end
 
 
