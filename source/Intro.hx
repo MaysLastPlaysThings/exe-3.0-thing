@@ -55,6 +55,7 @@ class Intro extends MusicBeatState
       #if hxCodec
 			var video = new VideoHandler();
 			#elseif hxvlc
+			var video = new FlxVideo();
 			#end
 			video.canSkip = false;
 			video.finishCallback = function()
