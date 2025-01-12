@@ -98,11 +98,12 @@ class Intro extends MusicBeatState
 		     onComplete: function(twn:FlxTween)
 			{
 		      MusicBeatState.switchState(new TitleState());
-		  }
+		    }
 	     });
-		}
+		  }
 	   });
 	  }, true);
+			video.play(Paths.video('HaxeFlixelIntro'));
      }
 	}
 }
