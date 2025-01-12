@@ -70,8 +70,16 @@ import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 import flixel.tweens.FlxTween.FlxTweenManager;
 import flixel.system.scaleModes.StageSizeScaleMode;
 import flixel.system.scaleModes.BaseScaleMode;
+#if (hxCodec == "2.6.0")
+import vlc.MP4Handler as VideoHandler;
+import vlc.MP4Sprite as VideoSprite;
+#elseif (hxCodec >= "2.6.1")
 import hxcodec.VideoHandler;
 import hxcodec.VideoSprite;
+#elseif (hxCodec >= "3.0.0")
+import hxcodec.flixel.FlxVideo as VideoHandler;
+import hxcodec.flixel.FlxVideoSprite as VideoSprite;
+#end
 
 using StringTools;
 
@@ -2914,12 +2922,21 @@ class PlayState extends MusicBeatState
 		}
 
 		var video:VideoHandler = new VideoHandler();
+		#if (hxCodec =< "3.0.0")
 		video.playVideo(fileName);
 		video.finishCallback = function()
 		{
 			startAndEnd();
 			return;
 		}
+		#else
+		video.play(fileName);
+		video.onEndReached.add(function()
+		{
+			startAndEnd();
+			return;
+		});
+		#end
 		#else
 		FlxG.log.warn('Platform not supported!');
 		startAndEnd();
