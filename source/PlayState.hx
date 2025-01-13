@@ -3209,8 +3209,8 @@ class PlayState extends MusicBeatState
 		}
 
 		creditsText = new FlxTypedGroup<FlxText>();
-		// in here, specify your song name and then its credits, then go to the next switch
-		switch (SONG.song.toLowerCase())
+		//in here, specify your song name and then its credits, then go to the next switch
+		switch(SONG.song.toLowerCase())
 		{
 			default:
 				box = new FlxSprite(0, -1000).loadGraphic(Paths.image("box"));
@@ -3222,10 +3222,10 @@ class PlayState extends MusicBeatState
 				var texti:String;
 				var size:String;
 
-				if (#if desktop FileSystem.exists #else OpenFlAssets.exists #end(Paths.json(curSong.toLowerCase() + "/credits")))
+				if (OpenFlAssets.exists(Paths.json(curSong.toLowerCase() + "/credits")))
 				{
-					texti = #if File.getContent #else OpenFlAssets.getText #end((Paths.json(curSong.toLowerCase() + "/credits"))).split("TIME")[0];
-					size = File.getContent((Paths.json(curSong.toLowerCase() + "/credits"))).split("SIZE")[1];
+					texti = OpenFlAssets.getText((Paths.json(curSong.toLowerCase() + "/credits"))).split("TIME")[0];
+					size = OpenFlAssets.getText((Paths.json(curSong.toLowerCase() + "/credits"))).split("SIZE")[1];
 				}
 				else
 				{
@@ -3238,22 +3238,22 @@ class PlayState extends MusicBeatState
 				creditoText.setFormat(Paths.font("PressStart2P.ttf"), Std.parseInt(size), FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 				creditoText.setGraphicSize(Std.int(creditoText.width * 0.8));
 				creditoText.updateHitbox();
-				creditoText.screenCenter(X);
+				creditoText.x += 515;
 				creditsText.add(creditoText);
 		}
 		add(creditsText);
 
-		// this is the timing of the box coming in, specify your song and IF NEEDED, change the amount of time it takes to come in
-		// if you want to add it to start at the beginning of the song, type " | ", then add your song name
-		// poop fart ahahahahahah
+		//this is the timing of the box coming in, specify your song and IF NEEDED, change the amount of time it takes to come in
+		//if you want to add it to start at the beginning of the song, type " | ", then add your song name
+		//poop fart ahahahahahah
 		switch (SONG.song.toLowerCase())
 		{
 			default:
 				var timei:String;
 
-				if (#if desktop FileSystem.exists #else OpenFlAssets.exists #end(Paths.json(curSong.toLowerCase() + "/credits")))
+				if (OpenFlAssets.exists(Paths.json(curSong.toLowerCase() + "/credits")))
 				{
-					timei = #if File.getContent #else OpenFlAssets.getText #end((Paths.json(curSong.toLowerCase() + "/credits"))).split("TIME")[1];
+					timei = OpenFlAssets.getText((Paths.json(curSong.toLowerCase() + "/credits"))).split("TIME")[1];
 				}
 				else
 				{
@@ -3263,9 +3263,9 @@ class PlayState extends MusicBeatState
 				FlxG.log.add('BTW THE TIME IS ' + Std.parseFloat(timei));
 
 				new FlxTimer().start(Std.parseFloat(timei), function(tmr:FlxTimer)
-				{
-					tweencredits();
-				});
+					{
+						tweencredits();
+					});
 		}
 
 		// Song duration in a float, useful for the time left feature
