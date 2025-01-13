@@ -63,8 +63,6 @@ import openfl.display.StageQuality;
 import openfl.events.KeyboardEvent;
 import openfl.filters.ShaderFilter;
 import openfl.utils.Assets as OpenFlAssets;
-import sys.FileSystem;
-import sys.io.File;
 import lime.app.Application;
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 import flixel.tweens.FlxTween.FlxTweenManager;
@@ -88,6 +86,7 @@ import Discord.DiscordClient;
 #end
 #if sys
 import sys.FileSystem;
+import sys.io.File;
 #end
 
 typedef BasicSpeedChange =
@@ -3228,9 +3227,9 @@ class PlayState extends MusicBeatState
 				var texti:String;
 				var size:String;
 
-				if (FileSystem.exists(Paths.json(curSong.toLowerCase() + "/credits")))
+				if (#if desktop FileSystem.exists #else OpenFlAssets.exists #end(Paths.json(curSong.toLowerCase() + "/credits")))
 				{
-					texti = File.getContent((Paths.json(curSong.toLowerCase() + "/credits"))).split("TIME")[0];
+					texti = #if File.getContent #else OpenFlAssets.getText #end((Paths.json(curSong.toLowerCase() + "/credits"))).split("TIME")[0];
 					size = File.getContent((Paths.json(curSong.toLowerCase() + "/credits"))).split("SIZE")[1];
 				}
 				else
@@ -3257,9 +3256,9 @@ class PlayState extends MusicBeatState
 			default:
 				var timei:String;
 
-				if (FileSystem.exists(Paths.json(curSong.toLowerCase() + "/credits")))
+				if (#if desktop FileSystem.exists #else OpenFlAssets.exists #end(Paths.json(curSong.toLowerCase() + "/credits")))
 				{
-					timei = File.getContent((Paths.json(curSong.toLowerCase() + "/credits"))).split("TIME")[1];
+					timei = #if File.getContent #else OpenFlAssets.getText #end((Paths.json(curSong.toLowerCase() + "/credits"))).split("TIME")[1];
 				}
 				else
 				{
@@ -3338,7 +3337,7 @@ class PlayState extends MusicBeatState
 
 		var songName:String = Paths.formatToSongPath(SONG.song);
 		var file:String = Paths.json(songName + '/');
-		#if sys
+		#if desktop
 		if (FileSystem.exists(Paths.modsJson(songName + '/')) || FileSystem.exists(file))
 		{
 		#else
