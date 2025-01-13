@@ -3238,7 +3238,7 @@ class PlayState extends MusicBeatState
 				creditoText.setFormat(Paths.font("PressStart2P.ttf"), Std.parseInt(size), FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 				creditoText.setGraphicSize(Std.int(creditoText.width * 0.8));
 				creditoText.updateHitbox();
-				creditoText.x += 515;
+				creditoText.screenCenter(X);
 				creditsText.add(creditoText);
 		}
 		add(creditsText);
