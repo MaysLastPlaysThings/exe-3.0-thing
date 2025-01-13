@@ -2916,14 +2916,14 @@ class PlayState extends MusicBeatState
 		}
 
 		var video:VideoHandler = new VideoHandler();
-		#if (hxCodec >= "2.6.1")
+		#if (hxCodec >= "2.6.0")
 		video.playVideo(fileName);
 		video.finishCallback = function()
 		{
 			startAndEnd();
 			return;
 		}
-		#else
+		#elseif (hxCodec >= "3.0.0")
 		video.play(fileName);
 		video.onEndReached.add(function()
 		{
@@ -6953,6 +6953,7 @@ class PlayState extends MusicBeatState
 		video.cameras = [camHUD];
 		video.shader = new GreenScreenShader();
 		video.visible = false;
+    #if (hxCodec >= "2.6.0")
 		video.finishCallback = function()
 		{
 			trace("video gone");
@@ -6964,6 +6965,19 @@ class PlayState extends MusicBeatState
 		{
 			video.visible = true;
 		}
+	  #elseif (hxCodec >= "3.0.0")
+		video.onEndReached.add(function()
+		{
+			trace("video gone");
+			remove(video);
+			video.destroy();
+		});
+		video.play(Paths.video(name));
+		video.onOpening.add(function()
+		{
+			video.visible = true;
+		});
+	  #end
 		add(video);
 	}
 
