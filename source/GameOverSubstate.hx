@@ -95,9 +95,9 @@ class GameOverSubstate extends MusicBeatSubstate
 				var file:String = Paths.video("SanicGameOvers/" + StringTools.replace(FileSystem.readDirectory(StringTools.replace(Paths.video("random"), "/random.mp4", "/SanicGameOvers"))[FlxG.random.int(0, FileSystem.readDirectory(StringTools.replace(Paths.video("random"), "/random.mp4", "/SanicGameOvers")).length)], ".mp4", ""));
 
 				trace("playing " + file);
-				#if (hxCodec =< "3.0.0")
+				#if (hxCodec >= "2.6.0")
 				video.playVideo(file);
-				#else
+				#elseif (hxCodec >= "3.0.0")
 				video.play(file);
 				#end
 			case "prey": 
