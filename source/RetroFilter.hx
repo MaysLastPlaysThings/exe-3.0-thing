@@ -8,12 +8,10 @@ import flixel.FlxG;
 import openfl.Lib;
 
 // Ported by ME (CryBit) and noone else (Nebula, i have a restraining order against you).
-
 // Also thanks to jackie for helping me port it.
-
 class RetroFilter extends FlxShader // https://www.shadertoy.com/view/WdffW2
 {
-    @:glFragmentSource('
+	@:glFragmentSource('
         #pragma header
 
         uniform float iTime;
@@ -91,8 +89,8 @@ class RetroFilter extends FlxShader // https://www.shadertoy.com/view/WdffW2
                 gl_FragColor=vec4(0);
         }
     ')
-    public function new()
-    {
-        super();
-    }
+	public function new()
+	{
+		super();
+	}
 }
