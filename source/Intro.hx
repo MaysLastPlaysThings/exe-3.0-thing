@@ -51,11 +51,11 @@ class Intro extends MusicBeatState
 		}
 		else
 		{
-			var div:FlxSprite;
-			div = new FlxSprite();
-			div.loadGraphic(Paths.image("cameostuff/divide"));
-			div.alpha = 0;
-			add(div);
+      var div:FlxSprite;
+      div = new FlxSprite();
+      div.loadGraphic(Paths.image("cameostuff/divide"));
+      div.alpha = 0;
+      add(div);
 
 			FlxG.mouse.visible = false;
 
@@ -104,6 +104,7 @@ class Intro extends MusicBeatState
 	   });
 	  }, true);
 			video.play(Paths.video('HaxeFlixelIntro'));
+		#end
      }
 	}
 }
