@@ -209,7 +209,7 @@ class Paths
 			return file;
 		}
 		#end
-		return 'assets/videos/$key.$VIDEO_EXT';
+		return Asset2File.getPath('assets/videos/$key.$VIDEO_EXT');
 	}
 
 	static public function sound(key:String, ?library:String):Dynamic
@@ -290,7 +290,7 @@ class Paths
 			return file;
 		}
 		#end
-		return Asset2File.getPath('assets/fonts/$key');
+		return 'assets/fonts/$key';
 	}
 
 	inline static public function fileExists(key:String, type:AssetType, ?ignoreMods:Bool = false, ?library:String)
