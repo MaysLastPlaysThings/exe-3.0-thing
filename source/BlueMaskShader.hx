@@ -8,11 +8,9 @@ import flixel.FlxG;
 import openfl.Lib;
 
 // wooo I made this :] -Neb
-
 class BlueMaskShader extends FlxShader
 {
-
-  @:glFragmentSource('
+	@:glFragmentSource('
     #pragma header
     uniform sampler2D mask;
     void main()
@@ -27,8 +25,8 @@ class BlueMaskShader extends FlxShader
     }
 
   ')
-  public function new()
-  {
-    super();
-  }
+	public function new()
+	{
+		super();
+	}
 }

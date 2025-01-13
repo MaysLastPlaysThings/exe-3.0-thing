@@ -8,12 +8,9 @@ import flixel.FlxG;
 import openfl.Lib;
 
 // Credits to Andromeda Engine (NebulaTheZoura) for porting from shadertoy!
-
-
 class VCRDistortionShader extends FlxShader // https://www.shadertoy.com/view/ldjGzV and https://www.shadertoy.com/view/Ms23DR and https://www.shadertoy.com/view/MsXGD4 and https://www.shadertoy.com/view/Xtccz4
 {
-
-  @:glFragmentSource('
+	@:glFragmentSource('
     #pragma header
 
     uniform float iTime;
@@ -133,8 +130,8 @@ class VCRDistortionShader extends FlxShader // https://www.shadertoy.com/view/ld
 
     }
   ')
-  public function new()
-  {
-    super();
-  }
-}//haMBURGERCHEESBEUBRGER!!!!!!!!
+	public function new()
+	{
+		super();
+	}
+} // haMBURGERCHEESBEUBRGER!!!!!!!!

@@ -9,15 +9,16 @@ import openfl.Lib;
 
 class WeedVision extends FlxShader // https://www.shadertoy.com/view/3ddXDj
 {
-  public var hue(default, set):Float = 0;
+	public var hue(default, set):Float = 0;
 
-  private function set_hue(value:Float){
-    hue=value%3;
-    daHue.value[0]=value%3;
-    return hue;
-  }
+	private function set_hue(value:Float)
+	{
+		hue = value % 3;
+		daHue.value[0] = value % 3;
+		return hue;
+	}
 
-  @:glFragmentSource('
+	@:glFragmentSource('
     #pragma header
     uniform float daHue; // Hue shift
     void main()
@@ -37,9 +38,9 @@ class WeedVision extends FlxShader // https://www.shadertoy.com/view/3ddXDj
         gl_FragColor = vec4(res*tex0.a, tex0.a);
     }
   ')
-  public function new()
-  {
-    super();
-    daHue.value = [0];
-  }
+	public function new()
+	{
+		super();
+		daHue.value = [0];
+	}
 }
