@@ -8,21 +8,21 @@ using StringTools;
 
 class Main {
     	public static function main():Void {
-      // Create a folder to prevent messing with hmm libraries
+        // Create a folder to prevent messing with hmm libraries
       	if (!FileSystem.exists(".haxelib"))
           	FileSystem.createDirectory(".haxelib");
 
-      // brief explanation: first we parse a json/xml containing the library names, data, and such
+        // brief explanation: first we parse a json/xml containing the library names, data, and such
         var libs = new Access(Xml.parse(File.getContent("./setup/libraries.xml")).firstElement());
   
         for (data in libs.elements) {
          switch (data.x.nodeName) {
          case "haxelib":
-           var version = data.has.version ? data.att.version : "";
-        Sys.println("");
-        Sys.println('Installing ${data.att.name}@${version.trim() == "" ? "latest" : version} from haxelib');
-         Sys.println("");
-         Sys.command('haxelib --quiet install ${data.att.name} $version --always --skip-dependencies');
+          var version = data.has.version ? data.att.version : "";
+          Sys.println("");
+          Sys.println('Installing ${data.att.name}@${version.trim() == "" ? "latest" : version} from haxelib');
+          Sys.println("");
+          Sys.command('haxelib --quiet install ${data.att.name} $version --always --skip-dependencies');
         case "git":
           Sys.println("");
           Sys.println('Installing ${data.att.name}@git from ${data.att.url}');
