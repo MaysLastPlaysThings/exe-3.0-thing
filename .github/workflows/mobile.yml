@@ -1,45 +1,58 @@
-name: Android Build
-on:
-  workflow_dispatch:
+name: Mobile Build
+on: workflow_dispatch
 jobs:
-  buildAndroid:
-    name: buildAndroid
+  Build:
     runs-on: ubuntu-latest
+    permissions:
+        contents: write
+        actions: write
     steps:
       - name: Checkout
         uses: actions/checkout@main
+        with:
+          submodules: true
 
       - name: Setup Android NDK
-        uses: nttld/setup-ndk@main
         id: setup-ndk
+        uses: nttld/setup-ndk@main
         with:
           ndk-version: r25c
-
       - name: Setup Java JDK
+
         uses: actions/setup-java@main
         with:
           distribution: 'zulu'
-          java-version: 18
-
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@main
+          java-version: '18'
 
       - name: Setup Haxe
-        uses: krdlab/setup-haxe@master
+        uses: krdlab/setup-haxe@v1.2.0
         with:
-          haxe-version: 4.3.4
+          haxe-version: 4.2.5
 
-      - name: Install Haxelib
+      - name: Installing Libraries
         run: |
           haxelib setup ~/haxelib
           haxe -cp ./setup -D analyzer-optimize -main Main --interp
           haxelib run lime rebuild hxcpp
+          haxelib install hxcpp-debug-server
+          haxelib list
 
-      - name: Compile
+      - name: Configure Android
+        run: |
+          haxelib run lime setup -alias -y
+          haxelib run lime config ANDROID_SDK $ANDROID_HOME
+          haxelib run lime config ANDROID_NDK_ROOT $ANDROID_NDK_HOME
+          haxelib run lime config JAVA_HOME $JAVA_HOME
+          haxelib run lime config ANDROID_SETUP true
+        env:
+          ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+
+      - name: Building
         run: haxelib run lime build android -final
 
-      - name: Publish Artifact
+      - name: Upload Artifact
         uses: actions/upload-artifact@main
         with:
           name: Sonic-Android
           path: export/release/android/bin/app/build/outputs/apk/debug
+          if-no-files-found: warn
