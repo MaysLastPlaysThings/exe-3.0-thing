@@ -137,8 +137,10 @@
 	<haxedef name="NAPE_RELEASE_BUILD" unless="debug" />
 
   <section if="android">
+	<config:android gradle-version="7.5.1" />
+        <config:android gradle-plugin="7.3.1" />
 	<config:android permission="android.permission.CAPTURE_AUDIO_OUTPUT" />
-	<android target-sdk-version="34" />
+	<android target-sdk-version="29" />
 	<android min-sdk-version="19" />
   </section>
 
