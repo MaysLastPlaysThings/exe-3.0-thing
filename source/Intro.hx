@@ -60,7 +60,6 @@ class Intro extends MusicBeatState
 			FlxG.mouse.visible = false;
 
 			var video = new VideoHandler();
-			#if (hxCodec =< "3.0.0")
 			video.canSkip = false;
 			video.finishCallback = function()
 			{
@@ -82,29 +81,6 @@ class Intro extends MusicBeatState
 				});
 			}
 			video.playVideo(Paths.video('HaxeFlixelIntro'));
-			#else
-			video.canSkip = false;
-			video.onEndReached.add(function()
-            {
-			 FlxG.sound.muteKeys = TitleState.muteKeys;
-	         FlxG.sound.volumeDownKeys = TitleState.volumeDownKeys;
-	         FlxG.sound.volumeUpKeys = TitleState.volumeUpKeys;
-		     FlxTween.tween(div, {alpha: 1}, 3.4, {
-	         ease: FlxEase.quadInOut,
-		     onComplete: function(twn:FlxTween)
-	        {
-		     FlxTween.tween(div, {alpha: 0}, 3.4, {
-			 ease: FlxEase.quadInOut,
-		     onComplete: function(twn:FlxTween)
-			{
-		      MusicBeatState.switchState(new TitleState());
-		    }
-	     });
-		  }
-	   });
-	  }, true);
-			video.play(Paths.video('HaxeFlixelIntro'));
-		#end
      }
 	}
 }
