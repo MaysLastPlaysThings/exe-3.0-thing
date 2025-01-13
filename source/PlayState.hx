@@ -3222,10 +3222,10 @@ class PlayState extends MusicBeatState
 				var texti:String;
 				var size:String;
 
-				if (#if desktop FileSystem.exists #else OpenFlAssets.exists #end(Paths.json(curSong.toLowerCase() + "/credits")))
+				if (OpenFlAssets.exists(Paths.json(curSong.toLowerCase() + "/credits")))
 				{
-					texti = #if File.getContent #else OpenFlAssets.getText #end((Paths.json(curSong.toLowerCase() + "/credits"))).split("TIME")[0];
-					size = File.getContent((Paths.json(curSong.toLowerCase() + "/credits"))).split("SIZE")[1];
+					texti = OpenFlAssets.getText((Paths.json(curSong.toLowerCase() + "/credits"))).split("TIME")[0];
+					size = OpenFlAssets.getText((Paths.json(curSong.toLowerCase() + "/credits"))).split("SIZE")[1];
 				}
 				else
 				{
@@ -3251,9 +3251,14 @@ class PlayState extends MusicBeatState
 			default:
 				var timei:String;
 
-				if (#if desktop FileSystem.exists #else OpenFlAssets.exists #end(Paths.json(curSong.toLowerCase() + "/credits")))
+				var texti:String;
+				var size:String;
+
+				var timei:String;
+
+				if(OpenFlAssets.exists(Paths.json(curSong.toLowerCase() + "/credits")))
 				{
-					timei = #if File.getContent #else OpenFlAssets.getText #end((Paths.json(curSong.toLowerCase() + "/credits"))).split("TIME")[1];
+					timei = OpenFlAssets.getText((Paths.json(curSong.toLowerCase() + "/credits"))).split("TIME")[1];
 				}
 				else
 				{
@@ -3261,7 +3266,6 @@ class PlayState extends MusicBeatState
 				}
 
 				FlxG.log.add('BTW THE TIME IS ' + Std.parseFloat(timei));
-
 				new FlxTimer().start(Std.parseFloat(timei), function(tmr:FlxTimer)
 				{
 					tweencredits();
