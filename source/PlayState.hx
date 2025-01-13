@@ -3209,8 +3209,8 @@ class PlayState extends MusicBeatState
 		}
 
 		creditsText = new FlxTypedGroup<FlxText>();
-		// in here, specify your song name and then its credits, then go to the next switch
-		switch (SONG.song.toLowerCase())
+		//in here, specify your song name and then its credits, then go to the next switch
+		switch(SONG.song.toLowerCase())
 		{
 			default:
 				box = new FlxSprite(0, -1000).loadGraphic(Paths.image("box"));
@@ -3243,9 +3243,9 @@ class PlayState extends MusicBeatState
 		}
 		add(creditsText);
 
-		// this is the timing of the box coming in, specify your song and IF NEEDED, change the amount of time it takes to come in
-		// if you want to add it to start at the beginning of the song, type " | ", then add your song name
-		// poop fart ahahahahahah
+		//this is the timing of the box coming in, specify your song and IF NEEDED, change the amount of time it takes to come in
+		//if you want to add it to start at the beginning of the song, type " | ", then add your song name
+		//poop fart ahahahahahah
 		switch (SONG.song.toLowerCase())
 		{
 			default:
@@ -3267,9 +3267,9 @@ class PlayState extends MusicBeatState
 
 				FlxG.log.add('BTW THE TIME IS ' + Std.parseFloat(timei));
 				new FlxTimer().start(Std.parseFloat(timei), function(tmr:FlxTimer)
-				{
-					tweencredits();
-				});
+					{
+						tweencredits();
+					});
 		}
 
 		// Song duration in a float, useful for the time left feature
