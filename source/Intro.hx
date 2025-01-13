@@ -14,7 +14,6 @@ import flixel.addons.display.FlxGridOverlay;
 import flixel.addons.transition.FlxTransitionSprite.GraphicTransTileDiamond;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.addons.transition.TransitionData;
-// import flixel.graphics.FlxGraphic;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxGroup;
 import flixel.input.gamepad.FlxGamepad;
@@ -29,18 +28,14 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.app.Application;
 import openfl.Assets;
-#if (hxCodec == "2.6.0")
-import vlc.MP4Handler;
-#elseif (hxCodec >= "2.6.1")
 import hxcodec.VideoHandler;
-#elseif (hxCodec >= "3.0.0)
-import hxcodec.flixel.FlxVideo as VideoHandler;
-#end
 
 using StringTools;
 
 class Intro extends MusicBeatState
 {
+	var div:FlxSprite;
+
 	override public function create()
 	{
 		FlxG.save.bind('exenew', 'kittysleeper');
@@ -51,11 +46,10 @@ class Intro extends MusicBeatState
 		}
 		else
 		{
-      var div:FlxSprite;
-      div = new FlxSprite();
-      div.loadGraphic(Paths.image("cameostuff/divide"));
-      div.alpha = 0;
-      add(div);
+			div = new FlxSprite();
+			div.loadGraphic(Paths.image("cameostuff/divide"));
+			div.alpha = 0;
+			add(div);
 
 			FlxG.mouse.visible = false;
 
@@ -81,6 +75,6 @@ class Intro extends MusicBeatState
 				});
 			}
 			video.playVideo(Paths.video('HaxeFlixelIntro'));
-     }
+		}
 	}
 }
