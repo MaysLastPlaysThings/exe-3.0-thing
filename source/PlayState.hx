@@ -2916,7 +2916,7 @@ class PlayState extends MusicBeatState
 		}
 
 		var video:VideoHandler = new VideoHandler();
-		#if (hxCodec =< "3.0.0")
+		#if (hxCodec >= "3.0.0")
 		video.playVideo(fileName);
 		video.finishCallback = function()
 		{
