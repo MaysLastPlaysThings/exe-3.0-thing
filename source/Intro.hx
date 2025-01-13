@@ -60,7 +60,7 @@ class Intro extends MusicBeatState
 			FlxG.mouse.visible = false;
 
 			var video = new VideoHandler();
-			#if (hxCodec >= "2.6.1")
+			#if (hxCodec =< "3.0.0")
 			video.canSkip = false;
 			video.finishCallback = function()
 			{
