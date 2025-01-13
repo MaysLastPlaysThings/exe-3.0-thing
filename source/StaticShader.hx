@@ -9,8 +9,7 @@ import openfl.Lib;
 
 class StaticShader extends FlxShader // https://www.shadertoy.com/view/ldjGzV and https://www.shadertoy.com/view/Ms23DR and https://www.shadertoy.com/view/MsXGD4 and https://www.shadertoy.com/view/Xtccz4
 {
-
-  @:glFragmentSource('
+	@:glFragmentSource('
   #pragma header
 
   uniform float iTime;
@@ -45,8 +44,8 @@ class StaticShader extends FlxShader // https://www.shadertoy.com/view/ldjGzV an
   }
 
     ')
-  public function new()
-  {
-    super();
-  }
-}//haMBURGERCHEESBEUBRGER!!!!!!!!
+	public function new()
+	{
+		super();
+	}
+} // haMBURGERCHEESBEUBRGER!!!!!!!!
