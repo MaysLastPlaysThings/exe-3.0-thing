@@ -880,7 +880,7 @@ class FunkinLua {
 			return false;
 		});
 		Lua_helper.add_callback(lua, "startVideo", function(videoFile:String) {
-			#if VIDEOS_ALLOWED
+			#if MODS_ALLOWED
 			if(FileSystem.exists(Paths.modsVideo(videoFile))) {
 				lePlayState.startVideo(videoFile);
 			} else {
@@ -1118,7 +1118,9 @@ class FunkinLua {
 			luaTrace('musicFadeOut is deprecated! Use soundFadeOut instead.', false, true);
 		});
 
+		#if desktop
 		Discord.DiscordClient.addLuaCallbacks(lua);
+		#end
 
 		call('onCreate', []);
 		#end
