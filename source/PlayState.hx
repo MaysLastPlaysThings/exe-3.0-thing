@@ -2299,14 +2299,14 @@ class PlayState extends MusicBeatState
 		#if LUA_ALLOWED
 		var doPush:Bool = false;
 		var luaFile:String = 'data/' + Paths.formatToSongPath(SONG.song) + '/script.lua';
-		if (OpenFlAssets.exists(Paths.modFolders(luaFile)))
-		{
+	//	if (OpenFlAssets.exists(Paths.modFolders(luaFile)))
+	//	{
 			luaFile = Paths.getPreloadPath(luaFile);
 			if (OpenFlAssets.exists(luaFile))
 			{
 				doPush = true;
 			}
-		}
+	//	}
 
 		if (doPush)
 			luaArray.push(new FunkinLua(luaFile));
