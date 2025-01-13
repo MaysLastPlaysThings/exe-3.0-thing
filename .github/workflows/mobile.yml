@@ -1,0 +1,45 @@
+name: Android Build
+on:
+  workflow_dispatch:
+jobs:
+  buildAndroid:
+    name: buildAndroid
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@main
+
+      - name: Setup Android NDK
+        uses: nttld/setup-ndk@main
+        id: setup-ndk
+        with:
+          ndk-version: r25c
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@main
+        with:
+          distribution: 'zulu'
+          java-version: 18
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@main
+
+      - name: Setup Haxe
+        uses: krdlab/setup-haxe@master
+        with:
+          haxe-version: 4.3.4
+
+      - name: Install Haxelib
+        run: |
+          haxelib setup ~/haxelib
+          haxe -cp ./setup -D analyzer-optimize -main Main --interp
+          haxelib run lime rebuild hxcpp
+
+      - name: Compile
+        run: haxelib run lime build android -final
+
+      - name: Publish Artifact
+        uses: actions/upload-artifact@main
+        with:
+          name: Sonic-Android
+          path: export/release/android/bin/app/build/outputs/apk/debug
