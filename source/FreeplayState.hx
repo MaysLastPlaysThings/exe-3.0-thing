@@ -16,7 +16,7 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import lime.utils.Assets;
 import flixel.system.FlxSound;
-import sys.FileSystem;
+import openfl.utils.Assets;
 import flixel.addons.display.FlxBackdrop;
 import flixel.addons.effects.FlxSkewedSprite;
 #if windows
@@ -94,7 +94,7 @@ class FreeplayState extends MusicBeatState // REWRITE FREEPLAY!?!?!? HELL YEA!!!
 
 				if (charUnlocked.contains(charArray[i]))
 				{
-					if (FileSystem.exists('assets/images/fpstuff/' + charArray[i].toLowerCase() + '.png'))
+					if (Assets.exists('assets/images/fpstuff/' + charArray[i].toLowerCase() + '.png'))
 					{
 						var char:FlxSkewedSprite = new FlxSkewedSprite(0, i * 415);
 						char.loadGraphic(Paths.image('fpstuff/' + charArray[i].toLowerCase()));
