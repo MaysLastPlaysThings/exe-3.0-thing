@@ -16,7 +16,6 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import lime.utils.Assets;
 import flixel.system.FlxSound;
-import openfl.utils.Assets;
 import flixel.addons.display.FlxBackdrop;
 import flixel.addons.effects.FlxSkewedSprite;
 #if windows
