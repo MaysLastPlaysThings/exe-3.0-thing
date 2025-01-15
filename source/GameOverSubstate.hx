@@ -97,14 +97,10 @@ class GameOverSubstate extends MusicBeatSubstate
 				trace("playing " + file);
 				#if (hxCodec >= "2.6.0")
 				video.playVideo(file);
-				video.finishCallback = function() {
 				canAction = true;
-				}
 				#elseif (hxCodec >= "3.0.0")
 				video.play(file);
-				video.onEndReached.add(function() {
-			 canAction = true;
-				});
+			  canAction = true;
 				#end
 			case "prey": 
 				bf.playAnim('firstDeath');
