@@ -19,7 +19,6 @@ jobs:
           haxelib setup C:/haxelib
           haxe -cp ./setup -D analyzer-optimize -main Main --interp
           haxelib install hxcpp-debug-server
-          haxelib run lime rebuild hxcpp
           haxelib list
 
       - name: Compile
