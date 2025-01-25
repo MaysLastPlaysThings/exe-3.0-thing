@@ -54,7 +54,9 @@ class SoundTestMenu extends MusicBeatState
 		cam.bgColor.alpha = 0;
 		FlxCamera.defaultCameras = [cam];
 
+        #if windows
 		DiscordClient.changePresence('In the Sound Test Menu', null);
+		#end
 
 		new FlxTimer().start(0.1, function(tmr:FlxTimer)
 		{
@@ -165,6 +167,7 @@ class SoundTestMenu extends MusicBeatState
 			woahmanstopspammin = false;
 			PlayState.SONG = Song.loadFromJson('endless-hard', 'endless');
 			PlayState.isStoryMode = false;
+			PlayState.isEncoreMode = false;
 			PlayState.storyDifficulty = 2;
 			PlayState.storyWeek = 1;
 
@@ -181,6 +184,7 @@ class SoundTestMenu extends MusicBeatState
 
 			PlayState.SONG = Song.loadFromJson('cycles-hard', 'cycles');
 			PlayState.isStoryMode = false;
+			PlayState.isEncoreMode = false;
 			PlayState.storyDifficulty = 2;
 			PlayState.storyWeek = 1;
 
@@ -197,6 +201,7 @@ class SoundTestMenu extends MusicBeatState
 
 			PlayState.SONG = Song.loadFromJson('sunshine', 'sunshine');
 			PlayState.isStoryMode = false;
+			PlayState.isEncoreMode = false;
 			PlayState.storyDifficulty = 2;
 			PlayState.storyWeek = 1;
 
@@ -213,6 +218,7 @@ class SoundTestMenu extends MusicBeatState
 
 			PlayState.SONG = Song.loadFromJson('chaos-hard', 'chaos');
 			PlayState.isStoryMode = false;
+			PlayState.isEncoreMode = false;
 			PlayState.storyDifficulty = 2;
 			PlayState.storyWeek = 1;
 
@@ -229,6 +235,7 @@ class SoundTestMenu extends MusicBeatState
 
 			PlayState.SONG = Song.loadFromJson('too-fest-hard', 'too-fest');
 			PlayState.isStoryMode = false;
+			PlayState.isEncoreMode = false;
 			PlayState.storyDifficulty = 2;
 			PlayState.storyWeek = 1;
 
@@ -375,6 +382,7 @@ class SoundTestMenu extends MusicBeatState
 			PlayStateChangeables.nocheese = false;
 			PlayState.SONG = Song.loadFromJson('personel-hard', 'personel');
 			PlayState.isStoryMode = false;
+			PlayState.isEncoreMode = false;
 			PlayState.storyDifficulty = 2;
 			PlayState.storyWeek = 1;
 
