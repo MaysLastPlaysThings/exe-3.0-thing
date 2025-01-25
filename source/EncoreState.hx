@@ -122,6 +122,7 @@ class EncoreState extends MusicBeatState
 
 			PlayState.SONG = Song.loadFromJson(songArray[curSelected].toLowerCase() + '-encore', songArray[curSelected].toLowerCase());
 			PlayState.isStoryMode = false;
+			PlayState.isEncoreMode = true;
 			PlayState.storyDifficulty = 3;
 			PlayState.storyWeek = 1;
 			FlxTween.tween(whiteshit, {alpha: 1}, 0.4);
