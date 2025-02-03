@@ -160,22 +160,22 @@ class Controls extends FlxActionSet
 	public var UI_UP(get, never):Bool;
 
 	inline function get_UI_UP()
-		return _ui_up.check();
+		return _ui_up.check() || TouchInput.isSwipe('up');
 
 	public var UI_LEFT(get, never):Bool;
 
 	inline function get_UI_LEFT()
-		return _ui_left.check();
+		return _ui_left.check() || TouchInput.isSwipe('left');
 
 	public var UI_RIGHT(get, never):Bool;
 
 	inline function get_UI_RIGHT()
-		return _ui_right.check();
+		return _ui_right.check() || TouchInput.isSwipe('right');
 
 	public var UI_DOWN(get, never):Bool;
 
 	inline function get_UI_DOWN()
-		return _ui_down.check();
+		return _ui_down.check() || TouchInput.isSwipe('down');
 
 	public var UI_UP_P(get, never):Bool;
 
@@ -257,7 +257,7 @@ class Controls extends FlxActionSet
 	inline function get_NOTE_DOWN_P()
 		return _note_downP.check();
 
-	public var NOTE_UP_R(get, never):Bool;
+	public var NOTE_UP_Rget, never):Bool;
 
 	inline function get_NOTE_UP_R()
 		return _note_upR.check();
@@ -285,12 +285,12 @@ class Controls extends FlxActionSet
 	public var BACK(get, never):Bool;
 
 	inline function get_BACK()
-		return _back.check();
+		return _back.check() || TouchInput.BACK();
 
 	public var PAUSE(get, never):Bool;
 
 	inline function get_PAUSE()
-		return _pause.check();
+		return _pause.check() || TouchInput.BACK();
 
 	public var RESET(get, never):Bool;
 
