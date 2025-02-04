@@ -3,36 +3,6 @@ function define(name,def)
     modMgr:set(name,def)
 end
 
--- sonic bg
-setVar("defaultCamZoom", 0.9)
-local sky = newSprite(-414,-440.8,true):loadGraphic("SonicP2/sky")
-sky.antialiasing=true;
-sky.scrollFactorX = 1;
-sky.scrollFactorY = 1;
-sky.scaleX = 1.4;
-sky.scaleY = 1.4;
-
-local trees = newSprite(-290.55,-298.3,true):loadGraphic("SonicP2/backtrees")
-trees.antialiasing=true;
-trees.scrollFactorX = 1
-trees.scrollFactorY = 1
-trees.scaleX = 1.2
-trees.scaleY = 1.2
-
-local bg2 = newSprite(-290.55,-298.3,true):loadGraphic("SonicP2/trees")
-bg2.antialiasing=true;
-bg2.scrollFactorX = 1
-bg2.scrollFactorY = 1
-bg2.scaleX = 1.2
-bg2.scaleY = 1.2
-
-local bg = newSprite(-290.55,-298.3,true):loadGraphic("SonicP2/ground")
-bg.antialiasing=true;
-bg.scrollFactorX = 1
-bg.scrollFactorY = 1
-bg.scaleX = 1.2
-bg.scaleY = 1.2
-
 modMgr:set("unboundedReverse",100) -- as long as its not 0, reverse can go >100 and itll work same as <0
 modMgr:set("stealth", 25, 1)
 modMgr:set("opponentSwap", 50)
