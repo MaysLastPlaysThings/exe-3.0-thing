@@ -180,22 +180,22 @@ class Controls extends FlxActionSet
 	public var UI_UP_P(get, never):Bool;
 
 	inline function get_UI_UP_P()
-		return _ui_upP.check();
+		return _ui_upP.check() || TouchInput.isSwipe('up');
 
 	public var UI_LEFT_P(get, never):Bool;
 
 	inline function get_UI_LEFT_P()
-		return _ui_leftP.check();
+		return _ui_leftP.check() || TouchInput.isSwipe('left');
 
 	public var UI_RIGHT_P(get, never):Bool;
 
 	inline function get_UI_RIGHT_P()
-		return _ui_rightP.check();
+		return _ui_rightP.check() || TouchInput.isSwipe('right');
 
 	public var UI_DOWN_P(get, never):Bool;
 
 	inline function get_UI_DOWN_P()
-		return _ui_downP.check();
+		return _ui_downP.check() || TouchInput.isSwipe('down');
 
 	public var UI_UP_R(get, never):Bool;
 
