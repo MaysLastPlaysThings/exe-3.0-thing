@@ -8,6 +8,6 @@
  <haxelib name="hscript" version="2.5.0"/>
  <haxelib name="hxCodec" version="2.6.1"/>
  <git name="hxcpp" url="https://github.com/HaxeFoundation/hxcpp"/>
- <git name="linc_luajit" url="https://github.com/superpowers04/linc_luajit"/>
+ <git name="linc_luajit" url="https://github.com/mcagabe19-stuff/linc_luajit-rewriten"/>
  <git name="discord_rpc" url="https://github.com/Aidan63/linc_discord-rpc.git" unless="mobile" />
  </libraries>
