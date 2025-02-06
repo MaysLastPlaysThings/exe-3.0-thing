@@ -27,7 +27,6 @@ jobs:
       - name: Merge Upstream
         uses: exions/merge-upstream@v1
         with:
-          no-ff: ${{ git merge --no-ff }}
           upstream: ${{ github.event.inputs.upstream-repository }}
           upstream-branch: ${{ github.event.inputs.upstream-branch }}
           branch: ${{ github.event.inputs.branch }}
