@@ -169,6 +169,7 @@ class PlayState extends MusicBeatState
 	public static var isPixelStage:Bool = false;
 	public static var SONG:SwagSong = null;
 	public static var isStoryMode:Bool = false;
+  public static var isEncoreMode:Bool = false;
 	public static var storyWeek:Int = 0;
 	public static var storyPlaylist:Array<String> = [];
 	public static var storyDifficulty:Int = 1;
@@ -6041,6 +6042,16 @@ class PlayState extends MusicBeatState
 						LoadingState.loadAndSwitchState(new PlayState());
 					}
 				}
+			}
+			else if (isEncoreMode)
+			{
+				trace('WENT BACK TO ENCORE??');
+				cancelFadeTween();
+				MusicBeatState.switchState(new EncoreState());
+				FlxG.sound.playMusic(Paths.music('freakyMenu'));
+				usedPractice = false;
+				changedDifficulty = false;
+				cpuControlled = false;
 			}
 			else
 			{
