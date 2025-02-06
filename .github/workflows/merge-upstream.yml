@@ -4,7 +4,7 @@ inputs:
       upstream:
        description: 'Upstream repository owner/name. Eg. exions/merge-upstream'
        required: true
-       default: 'owner/name'       # set the upstream repo
+       default: 'KittySleeper/exe-3.0-thing'       # set the upstream repo
        upstream:
         description: 'Upstream branch to merge from. Eg. master'
         required: true
