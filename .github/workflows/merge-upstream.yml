@@ -1,19 +1,18 @@
 name: Manual Merge Remote Action
-on: 
-  workflow_dispatch:
-    inputs:
+on: workflow_dispatch
+inputs:
       upstream:
-        description: 'Upstream repository owner/name. Eg. exions/merge-upstream'
+       description: 'Upstream repository owner/name. Eg. exions/merge-upstream'
+       required: true
+       default: 'owner/name'       # set the upstream repo
+       upstream:
+        description: 'Upstream branch to merge from. Eg. master'
         required: true
-        default: 'owner/name'       # set the upstream repo
-      upstream:
-         description: 'Upstream branch to merge from. Eg. master'
-         required: true
-         default: 'master'           # set the upstream branch to merge from
-      branch:
-        description: 'Branch to merge to'
-        required: true
-        default: 'upstream'         # set the branch to merge to
+        default: 'master'           # set the upstream branch to merge from
+       branch:
+          description: 'Branch to merge to'
+          required: true
+          default: 'upstream'         # set the branch to merge to
 
 jobs:
   merge-upstream:
