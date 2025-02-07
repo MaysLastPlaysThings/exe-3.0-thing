@@ -72,7 +72,9 @@ class FreeplayState extends MusicBeatState // REWRITE FREEPLAY!?!?!? HELL YEA!!!
 		bg.setGraphicSize(1280, 720);
 		add(bg);
 
-		scrollingBg = new FlxBackdrop(Paths.image('sidebar'), 0, 1, false, true);
+		scrollingBg = new FlxBackdrop(Paths.image('sidebar'), false, true);
+		scrollingBg.x = 0;
+		scrollingBg.y = 1;
 		add(scrollingBg);
 
 		textgrp = new FlxTypedGroup<FlxText>();
