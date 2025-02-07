@@ -13,6 +13,14 @@ import flixel.text.FlxText;
 import flixel.FlxSprite;
 import flixel.FlxCamera;
 import sys.FileSystem;
+#if (hxCodec == "2.6.0")
+import vlc.MP4Handler as VideoHandler;
+#elseif (hxCodec >= "2.6.1")
+import hxcodec.VideoHandler;
+#elseif (hxCodec >= "3.0.0")
+import hxcodec.flixel.FlxVideo as VideoHandler;
+#end
+
 
 class GameOverSubstate extends MusicBeatSubstate
 {
@@ -83,11 +91,17 @@ class GameOverSubstate extends MusicBeatSubstate
 				bf.playAnim('firstDeath');
 			case "too-fest":
 				bf.alpha = 0;
-				var video = new MP4Handler();
+				var video = new VideoHandler();
 				var file:String = Paths.video("SanicGameOvers/" + StringTools.replace(FileSystem.readDirectory(StringTools.replace(Paths.video("random"), "/random.mp4", "/SanicGameOvers"))[FlxG.random.int(0, FileSystem.readDirectory(StringTools.replace(Paths.video("random"), "/random.mp4", "/SanicGameOvers")).length)], ".mp4", ""));
 
 				trace("playing " + file);
-				video.playVideo(file); // LONGEST FUCKING LINE EVER
+				#if (hxCodec >= "2.6.0")
+				video.playVideo(file);
+				canAction = true;
+				#elseif (hxCodec >= "3.0.0")
+				video.play(file);
+			  canAction = true;
+				#end
 			case "prey": 
 				bf.playAnim('firstDeath');
 				bf.x += 150;
@@ -220,6 +234,8 @@ class GameOverSubstate extends MusicBeatSubstate
 
 			if (PlayState.isStoryMode)
 				MusicBeatState.switchState(new StoryMenuState());
+			else if (PlayState.isEncoreMode)
+			  MusicBeatState.switchState(new EncoreState());
 			else
 				MusicBeatState.switchState(new FreeplayState());
 
