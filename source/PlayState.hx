@@ -2917,7 +2917,7 @@ class PlayState extends MusicBeatState
 			return;
 		}
 
-		var video:FlxVideo = new FlxVideo();
+		var video = new FlxVideo();
 		video.play(fileName);
 		video.onEndReached.add(function()
 		{
@@ -6956,7 +6956,7 @@ class PlayState extends MusicBeatState
 
 	function chromaVideo(name:String)
 	{
-		var video:FlxVideoSprite = new FlxVideoSprite();
+		var video = new FlxVideoSprite(0,0);
 		video.scrollFactor.set();
 		video.cameras = [camHUD];
 		video.shader = new GreenScreenShader();
