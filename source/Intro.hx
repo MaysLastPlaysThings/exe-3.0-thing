@@ -55,7 +55,7 @@ class Intro extends MusicBeatState
 			FlxG.mouse.visible = false;
 
 			var video:FlxVideo = new FlxVideo();
-			video.canSkip = false;
+			//video.canSkip = false;
 			video.onEndReached.add(function()
 			{
 				FlxG.sound.muteKeys = TitleState.muteKeys;
