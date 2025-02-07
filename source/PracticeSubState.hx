@@ -97,12 +97,9 @@ class PracticeSubState extends MusicBeatSubstate
 
 		for (i in 0...menuItems.length)
 		{
-            var offset:Float = 108 - (Math.max(menuItems.length, 4) - 4) * 80;
-            var menuItem:FlxSprite = new FlxSprite(0, (i * 140)  + offset);
-
-			var actualText:FlxSprite = new FlxSprite(-400 + (40 * i), (FlxG.height * 0.6) + (i * 100)).loadGraphic(Paths.image(StringTools.replace("pauseStuff/practice/" + menuItems[i], " ", "")));
+			var actualText:FlxSprite = new FlxSprite(-400 + (40 * i), (FlxG.height * 0.57) + (i * 110)).loadGraphic(Paths.image(StringTools.replace("pauseStuff/practice/" + menuItems[i], " ", "")));
 			actualText.ID = i;
-			FlxTween.tween(actualText, {x: 15 + (i * 50)}, 0.2, {ease: FlxEase.quadOut});
+			FlxTween.tween(actualText, {x: 15 + (i * 120)}, 0.2, {ease: FlxEase.quadOut});
 			add(actualText);
     	}
 
