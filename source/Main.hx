@@ -43,6 +43,8 @@ class Main extends Sprite
 	{
 		super();
 
+		hxvlc.util.Handle.init(#if (hxvlc >= "1.8.0")  ['--no-lua'] #end);
+
 		if (stage != null)
 		{
 			init();

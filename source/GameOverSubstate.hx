@@ -13,14 +13,7 @@ import flixel.text.FlxText;
 import flixel.FlxSprite;
 import flixel.FlxCamera;
 import sys.FileSystem;
-#if (hxCodec == "2.6.0")
-import vlc.MP4Handler as VideoHandler;
-#elseif (hxCodec >= "2.6.1")
-import hxcodec.VideoHandler;
-#elseif (hxCodec >= "3.0.0")
-import hxcodec.flixel.FlxVideo as VideoHandler;
-#end
-
+import hxvlc.flixel.FlxVideo;
 
 class GameOverSubstate extends MusicBeatSubstate
 {
@@ -91,11 +84,11 @@ class GameOverSubstate extends MusicBeatSubstate
 				bf.playAnim('firstDeath');
 			case "too-fest":
 				bf.alpha = 0;
-				var video = new MP4Handler();
+				var video:FlxVideo = new FlxVideo();
 				var file:String = Paths.video("SanicGameOvers/" + StringTools.replace(FileSystem.readDirectory(StringTools.replace(Paths.video("random"), "/random.mp4", "/SanicGameOvers"))[FlxG.random.int(0, FileSystem.readDirectory(StringTools.replace(Paths.video("random"), "/random.mp4", "/SanicGameOvers")).length)], ".mp4", ""));
 
 				trace("playing " + file);
-				video.playVideo(file); // LONGEST FUCKING LINE EVER
+				video.play(file); // LONGEST FUCKING LINE EVER
 			case "prey": 
 				bf.playAnim('firstDeath');
 				bf.x += 150;
