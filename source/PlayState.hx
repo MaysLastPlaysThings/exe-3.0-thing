@@ -2939,14 +2939,6 @@ class PlayState extends MusicBeatState
 			startCountdown();
 	}
 
-	function startAndEnd()
-	{
-		if (endingSong)
-			endSong();
-		else
-			startCountdown();
-	}
-
 	var startTimer:FlxTimer;
 	var finishTimer:FlxTimer = null;
 
@@ -3245,7 +3237,7 @@ class PlayState extends MusicBeatState
 		add(creditsText);
 
 		//this is the timing of the box coming in, specify your song and IF NEEDED, change the amount of time it takes to come in
-		//if you want to add it to start at the beginning of the song, type " | ", then add your song name
+		//if you want to add it to at the beginning of the song, type " | ", then add your song name
 		//poop fart ahahahahahah
 		switch (SONG.song.toLowerCase())
 		{
