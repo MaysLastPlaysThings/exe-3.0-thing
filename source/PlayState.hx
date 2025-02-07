@@ -2918,7 +2918,7 @@ class PlayState extends MusicBeatState
 		}
 
 		var video:VideoHandler = new VideoHandler();
-		video.play(fileName);
+		video.playVideo(fileName);
 		video.finishCallback = function()
 		{
 			startAndEnd();
@@ -6967,7 +6967,7 @@ class PlayState extends MusicBeatState
 			remove(video);
 			video.destroy();
 		}
-		video.play(Paths.video(name));
+		video.playVideo(Paths.video(name));
 		video.openingCallback = function()
 		{
 			video.visible = true;

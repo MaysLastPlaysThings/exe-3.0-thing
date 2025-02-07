@@ -55,7 +55,7 @@ class Intro extends MusicBeatState
 			FlxG.mouse.visible = false;
 
 			var video:VideoHandler = new VideoHandler();
-			//video.canSkip = false;
+			video.canSkip = false;
 			video.finishCallback = function()
 			{
 				FlxG.sound.muteKeys = TitleState.muteKeys;
@@ -75,7 +75,7 @@ class Intro extends MusicBeatState
 					}
 				});
 			}
-			video.play(Paths.video('HaxeFlixelIntro'));
+			video.playVideo(Paths.video('HaxeFlixelIntro'));
 		}
 	}
 }
