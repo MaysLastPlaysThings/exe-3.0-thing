@@ -54,7 +54,7 @@ class Intro extends MusicBeatState
 
 			FlxG.mouse.visible = false;
 
-			var video:FlxVideo = new FlxVideo();
+			var video = new FlxVideo();
 			//video.canSkip = false;
 			video.onEndReached.add(function()
 			{
