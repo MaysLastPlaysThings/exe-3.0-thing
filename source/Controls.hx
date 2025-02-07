@@ -257,7 +257,7 @@ class Controls extends FlxActionSet
 	inline function get_NOTE_DOWN_P()
 		return _note_downP.check();
 
-	public var NOTE_UP_Rget, never):Bool;
+	public var NOTE_UP_R(get, never):Bool;
 
 	inline function get_NOTE_UP_R()
 		return _note_upR.check();
