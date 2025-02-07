@@ -24,6 +24,18 @@ class Main extends Sprite
 	// You can pretty much ignore everything from here on - your code should go in your states.
 
 	public static function main():Void {
+		HScript.parser = new hscript.Parser();
+		HScript.parser.allowJSON = true;
+		HScript.parser.allowMetadata = true;
+		HScript.parser.allowTypes = true;
+		HScript.parser.preprocesorValues = [
+			"desktop" => #if (desktop) true #else false #end,
+			"windows" => #if (windows) true #else false #end,
+			"mac" => #if (mac) true #else false #end,
+			"linux" => #if (linux) true #else false #end,
+			"debugBuild" => #if (debug) true #else false #end
+		];
+
 		Lib.current.addChild(new Main());
 	}
 

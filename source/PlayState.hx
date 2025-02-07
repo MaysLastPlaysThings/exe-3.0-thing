@@ -271,9 +271,12 @@ class PlayState extends MusicBeatState
 	var detailsPausedText:String = "";
 	var songRPC = SONG.song;
 	#end
-	// Lua shit (we gotta remove this)
+
+	
 	private var luaArray:Array<FunkinLua> = [];
 	private var luaDebugGroup:FlxTypedGroup<DebugLuaText>;
+
+	public var woahHScript:HScript;
 
 	public var introSoundsSuffix:String = '';
 
@@ -1644,10 +1647,6 @@ class PlayState extends MusicBeatState
 			case 'xterion' | 'starved-pixel' | 'starved' | 'chamber' | 'sanicStage' | 'void' | 'fatality' | 'cycles-hills':
 				gfGroup.visible = false;
 		}
-		trace(boyfriendGroup);
-		trace(dadGroup);
-		trace(dad2Group);
-		trace(gfGroup);
 
 		var gfVersion:String = SONG.player3;
 		if (gfVersion == null || gfVersion.length < 1)
@@ -2307,6 +2306,17 @@ class PlayState extends MusicBeatState
 		if (doPush)
 			luaArray.push(new FunkinLua(luaFile));
 		#end
+
+		woahHScript = new HScript('assets/data/${Paths.formatToSongPath(SONG.song)}/hscript');
+
+		if (!woahHScript.isBlank && woahHScript.expr != null)
+		{
+			woahHScript.interp.scriptObject = this;
+			woahHScript.setValue('add', add);
+			woahHScript.setValue('remove', remove);
+			woahHScript.interp.execute(woahHScript.expr);
+		}
+
 		add(barbedWires);
 		add(wireVignette);
 		var daSong:String = Paths.formatToSongPath(curSong);
@@ -8604,6 +8614,8 @@ class PlayState extends MusicBeatState
 			}
 		}
 		#end
+
+		try {woahHScript.callFunction(event, args);}catch(e){trace(e);}
 		return returnVal;
 	}
 
