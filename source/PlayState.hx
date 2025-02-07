@@ -2924,7 +2924,6 @@ class PlayState extends MusicBeatState
 			startAndEnd();
 			return;
 		});
-		#end
 		#else
 		FlxG.log.warn('Platform not supported!');
 		startAndEnd();
