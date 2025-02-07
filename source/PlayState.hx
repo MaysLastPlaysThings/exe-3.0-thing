@@ -69,7 +69,7 @@ import flixel.tweens.FlxTween.FlxTweenManager;
 import flixel.system.scaleModes.StageSizeScaleMode;
 import flixel.system.scaleModes.BaseScaleMode;
 import hxcodec.VideoHandler;
-import hxvlc.VideoSprite;
+import hxcodec.VideoSprite;
 
 using StringTools;
 
