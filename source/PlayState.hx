@@ -68,8 +68,8 @@ import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 import flixel.tweens.FlxTween.FlxTweenManager;
 import flixel.system.scaleModes.StageSizeScaleMode;
 import flixel.system.scaleModes.BaseScaleMode;
-import hxvlc.flixel.FlxVideo;
-import hxvlc.flixel.FlxVideoSprite;
+import hxcodec.VideoHandler;
+import hxvlc.VideoSprite;
 
 using StringTools;
 
@@ -2917,13 +2917,13 @@ class PlayState extends MusicBeatState
 			return;
 		}
 
-		var video = new FlxVideo();
+		var video:VideoHandler = new VideoHandler();
 		video.play(fileName);
-		video.onEndReached.add(function()
+		video.finishCallback = function()
 		{
 			startAndEnd();
 			return;
-		});
+		}
 		#else
 		FlxG.log.warn('Platform not supported!');
 		startAndEnd();
@@ -6956,22 +6956,22 @@ class PlayState extends MusicBeatState
 
 	function chromaVideo(name:String)
 	{
-		var video = new FlxVideoSprite(0,0);
+		var video:VideoSprite = new VideoSprite(0,0);
 		video.scrollFactor.set();
 		video.cameras = [camHUD];
 		video.shader = new GreenScreenShader();
 		video.visible = false;
-		video.bitmap.onEndReached.add(function()
+		video.finishCallback = function()
 		{
 			trace("video gone");
 			remove(video);
 			video.destroy();
-		});
+		}
 		video.play(Paths.video(name));
-		video.bitmap.onOpening.add(function()
+		video.openingCallback = function()
 		{
 			video.visible = true;
-		});
+		}
 		add(video);
 	}
 

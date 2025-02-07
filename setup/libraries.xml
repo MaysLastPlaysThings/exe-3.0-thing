@@ -6,7 +6,7 @@
  <haxelib name="flixel-ui" version="2.5.0"/>
  <haxelib name="openfl" version="9.1.0"/>
  <haxelib name="hscript" version="2.5.0"/>
- <haxelib name="hxvlc" version="1.4.1"/>
+ <haxelib name="hxCodec" version="2.6.1"/>
  <git name="hscript-improved" url="https://github.com/CodenameCrew/hscript-improved"/>
  <git name="hxcpp" url="https://github.com/HaxeFoundation/hxcpp"/>
  <git name="linc_luajit" url="https://github.com/mcagabe19-stuff/linc_luajit-rewriten"/>

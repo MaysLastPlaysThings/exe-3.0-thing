@@ -30,7 +30,7 @@ import flixel.util.FlxTimer;
 import lime.app.Application;
 import openfl.Assets;
 
-import hxvlc.flixel.FlxVideo;
+import hxcodec.VideoHandler;
 
 using StringTools;
 
@@ -54,9 +54,9 @@ class Intro extends MusicBeatState
 
 			FlxG.mouse.visible = false;
 
-			var video = new FlxVideo();
+			var video:VideoHandler = new VideoHandler();
 			//video.canSkip = false;
-			video.onEndReached.add(function()
+			video.finishCallback = function()
 			{
 				FlxG.sound.muteKeys = TitleState.muteKeys;
 				FlxG.sound.volumeDownKeys = TitleState.volumeDownKeys;
@@ -74,7 +74,7 @@ class Intro extends MusicBeatState
 						});
 					}
 				});
-			});
+			}
 			video.play(Paths.video('HaxeFlixelIntro'));
 		}
 	}
