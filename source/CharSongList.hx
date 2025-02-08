@@ -14,10 +14,10 @@ class CharSongList
 		"chaotix" => ["my-horizon", "our-horizon"],
 		"yourself..." => ["yourself"],
 		"curse" => ["malediction"],
-		"sl4sh" => ["b4cksl4sh"],
 		"satanos" => ["perdition"],
 		"starved" => ["prey", "fight-or-flight"],
 		"xterion" => ["substantial", "digitalized"],
+		"sl4sh" => ["b4cksl4sh"],
 		"needlemouse" => ["round-a-bout"],
 		"hog" => ["manual-blast"],
 		"sunky" => ["milk"],
@@ -39,6 +39,7 @@ class CharSongList
 		"satanos",
 		"starved",
 		"xterion",
+		"sl4sh",
 		"needlemouse",
 		"hog",
 		"sunky",
@@ -46,27 +47,7 @@ class CharSongList
 		"coldsteel",
 	];
 
-	public static var charactersUnlocked:Array<String> = [
-		// just for locks
-		"majin",
-		"lord x",
-		"tails doll",
-		"requital",
-		"fleetway",
-		"yourself...",
-		"fatalerror",
-		"chaotix",
-		"curse",
-		"sl4sh",
-		"satanos",
-		"starved",
-		"xterion",
-		"needlemouse",
-		"hog",
-		"sunky",
-		"sanic",
-		"coldsteel",
-	];
+	public static var charactersUnlocked:Array<String> = [];
 
 	public static function init()
 	{
@@ -74,14 +55,23 @@ class CharSongList
 		{
 			loaded = true;
 			
-			var unlockedShit:Array<String> = flixel.FlxG.save.data.charactersUnlocked;
+			if (flixel.FlxG.save.data.charactersUnlocked != null) {
+				var unlockedShit:Array<String> = flixel.FlxG.save.data.charactersUnlocked;
 
-			for (str in unlockedShit)
-			{
-				charactersUnlocked.push(str);
+				for (str in unlockedShit)
+				{
+					charactersUnlocked.push(str);
+				}
+			} else {
+				flixel.FlxG.save.data.charactersUnlocked = [];
 			}
 		}
 	}
+
+	public static function save()
+		for (str in charactersUnlocked)
+			if (!flixel.FlxG.save.data.charactersUnlocked.contains(str))
+				flixel.FlxG.save.data.charactersUnlocked.push(str);
 
 	public static function getSongsByChar(char:String)
 	{

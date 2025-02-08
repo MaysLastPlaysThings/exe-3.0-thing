@@ -40,6 +40,10 @@ class Intro extends MusicBeatState
 	{
 		FlxG.save.bind('exenew', 'kittysleeper');
 
+		var fatalBool:Bool = FlxG.random.bool(25) && FlxG.save.data.canGetFatal == null || FlxG.save.data.canGetFatal != null && Paths.getTextFromFile("data/containFatalError.cnt") != "Fatal_Prevention_Measures = false";
+
+		trace(Paths.getTextFromFile("data/containFatalError.cnt"));
+
 		if (FlxG.save.data.firstBoot == null || FlxG.save.data.firstBoot == true)
 		{
 			FlxG.switchState(new WarningState());
@@ -58,6 +62,11 @@ class Intro extends MusicBeatState
 			video.canSkip = false;
 			video.finishCallback = function()
 			{
+				if (fatalBool) {
+					FlxG.save.data.canGetFatal = false;
+					FlxG.save.flush();
+					Sys.exit(1);
+				}
 				FlxG.sound.muteKeys = TitleState.muteKeys;
 				FlxG.sound.volumeDownKeys = TitleState.volumeDownKeys;
 				FlxG.sound.volumeUpKeys = TitleState.volumeUpKeys;
@@ -75,7 +84,8 @@ class Intro extends MusicBeatState
 					}
 				});
 			}
-			video.playVideo(Paths.video('HaxeFlixelIntro'));
+
+			video.playVideo(Paths.video(if (fatalBool) 'fatal1' else 'HaxeFlixelIntro'));
 		}
 	}
 }

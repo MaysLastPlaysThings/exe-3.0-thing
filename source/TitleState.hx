@@ -71,6 +71,7 @@ class TitleState extends MusicBeatState
 		FlxG.sound.volumeUpKeys = volumeUpKeys;
 
 		PlayerSettings.init();
+		CharSongList.init();
 
 		curWacky = FlxG.random.getObject(getIntroTextShit());
 
@@ -193,15 +194,6 @@ class TitleState extends MusicBeatState
 		if (FlxG.save.data.charactersUnlocked == null)
 			FlxG.save.data.charactersUnlocked = [];
 
-		if (FlxG.save.data.tripleTroubleFinnished == null)
-			FlxG.save.data.tripleTroubleFinnished = "false";
-
-		if (FlxG.save.data.tripleTroubleFinnished == "true") {
-			titleText.color = FlxColor.RED;
-			bg.kill();
-			FlxG.sound.music.stop();
-		}
-
 		credGroup = new FlxGroup();
 		add(credGroup);
 		textGroup = new FlxGroup();
@@ -308,8 +300,6 @@ class TitleState extends MusicBeatState
 		{
 			if(pressedEnter && code != 4)
 			{
-				//if(titleText != null) titleText.animation.play('press');
-
 				if (FlxG.save.data.flashing)
 				{
 					titleText.animation.play('press');
@@ -330,26 +320,17 @@ class TitleState extends MusicBeatState
 					});
 
 				transitioning = true;
-				// FlxG.sound.music.stop();
+
 				new FlxTimer().start(4, function(tmr:FlxTimer)
 				{
-					remove(titleText); // incase someone turned flashing off
+					remove(titleText);
 					FlxG.sound.music.stop();
-					if (FlxG.save.data.tripleTroubleFinnished == "false" || FlxG.save.data.tripleTroubleFinnished == "finalescape")
-						MusicBeatState.switchState(new MainMenuState());
-					else if (FlxG.save.data.tripleTroubleFinnished == "true") {
-						PlayState.SONG = Song.loadFromJson('final-escape-hard', 'final-escape');
-						PlayState.isStoryMode = false;
-						PlayState.storyDifficulty = 2;
-						PlayState.storyWeek = 1;
-						LoadingState.loadAndSwitchState(new PlayState(), true);	
-					}
+					MusicBeatState.switchState(new MainMenuState());
 				});
 			}
 			else if (pressedEnter && !transitioning && skippedIntro && code == 4)
 				{
 					transitioning = true;
-
 
 					PlayState.SONG = Song.loadFromJson('milk', 'milk');
 					PlayState.isStoryMode = false;
@@ -358,9 +339,6 @@ class TitleState extends MusicBeatState
 					FlxG.camera.fade(FlxColor.WHITE, 0.5, false);
 					FlxG.sound.play(Paths.sound('confirmMenu'));
 
-
-					//if (!FlxG.save.data.songArray.contains('milk') && !FlxG.save.data.botplay)
-				//		FlxG.save.data.songArray.push('milk');
 					new FlxTimer().start(1.5, function(tmr:FlxTimer)
 					{
 						LoadingState.loadAndSwitchState(new PlayState(), true);
