@@ -59,8 +59,6 @@ class FreeplayState extends MusicBeatState // REWRITE FREEPLAY!?!?!? HELL YEA!!!
 
 	override function create()
 	{
-		CharSongList.init();
-
 		charArray = CharSongList.characters;
 
 		charUnlocked = CharSongList.charactersUnlocked;

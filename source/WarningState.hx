@@ -84,7 +84,6 @@ class WarningState extends MusicBeatState
         } else {
             if (menuObjects[curSelected].text == "yes") {
                 FlxG.save.data.firstBoot = false;
-                FlxG.save.data.tripleTroubleFinnished = "true";
                 FlxG.save.flush();
         }
 

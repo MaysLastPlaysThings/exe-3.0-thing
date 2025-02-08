@@ -59,29 +59,16 @@ class MainMenuState extends MusicBeatState
 
 	override function create()
 	{
-		/*#if debug
-		optionShit.push('sound test');
-		#else
-		optionShit.push('sound test locked');
-		#end
-		if(!ClientPrefs.beatweek){
-			optionShit.push('sound_test locked');
-			optionShit.push('encore locked');
-		}
-		else{
-			optionShit.push('sound_test');
-			optionShit.push('encore');
-		}*/
-
-
 		#if windows
-		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
 		#end
 
 		FlxG.sound.playMusic(Paths.music('storymodemenumusic'));
 		var yScroll:Float = Math.max(0.25 - (0.05 * (optionShit.length - 4)), 0.1);
 		persistentUpdate = persistentDraw = true;
+
+		if (Paths.getTextFromFile("data/containFatalError.cnt") == "Fatal_Prevention_Measures = false" && !CharSongList.charactersUnlocked.contains("fatalerror") && FlxG.save.data.canGetFatal != null)
+			optionShit.push("fatal");
 
 		var bg:FlxSprite = new FlxSprite();
 		bg.frames = Paths.getSparrowAtlas('Main_Menu_Spritesheet_Animation');
@@ -104,13 +91,9 @@ class MainMenuState extends MusicBeatState
 		bgdesat.antialiasing = true;
 		bgdesat.color = 0xFFfd719b;
 		add(bgdesat);
-		// bgdesat.scrollFactor.set();
-
 
 		camFollow = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
-
-
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
@@ -119,9 +102,6 @@ class MainMenuState extends MusicBeatState
 		add(menuItems);
 
 		var scale:Float = 1;
-		/*if(optionShit.length > 6) {
-			scale = 6 / optionShit.length;
-		}*/
 
 		for (i in 0...optionShit.length)
 		{
@@ -133,7 +113,6 @@ class MainMenuState extends MusicBeatState
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
 			menuItem.animation.addByPrefix('lock', optionShit[i] + " locked", 24);
 		if (!ClientPrefs.beatweek && optionShit[i] == 'sound_test') {
-				//menuItem.color = FlxColor.fromHSL(menuItem.color.hue, menuItem.color.saturation, 0.2, 1);
 				menuItem.animation.play('lock');
 				menuItem.animation.addByPrefix('idle', optionShit[i] + " locked", 24);
 			}
@@ -177,7 +156,7 @@ class MainMenuState extends MusicBeatState
 
 		FlxG.camera.follow(camFollow, null, 0.60 * (60 / FlxG.save.data.fpsCap));
 
-		var dataerase:FlxText = new FlxText(FlxG.width - 300, FlxG.height - 18 * 2, 300, "Hold DEL to erase ALL data (this doesn't include ALL options)", 3);
+		var dataerase:FlxText = new FlxText(FlxG.width - 300, FlxG.height - 18 * 2, 300, "Hold DEL to erase ALL data", 3);
 		dataerase.scrollFactor.set();
 		dataerase.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(dataerase);
@@ -193,6 +172,9 @@ class MainMenuState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
+		if (FlxG.keys.justPressed.ONE) //debug
+			ClientPrefs.beatweek = true;
+		
 		if (FlxG.keys.justPressed.DELETE)
 		{
 			var urmom = 0;
@@ -201,9 +183,7 @@ class MainMenuState extends MusicBeatState
 				urmom += 1;
 				if (urmom == 30)
 				{
-					FlxG.save.data.storyProgress = 0; // lol.
-					FlxG.save.data.soundTestUnlocked = false;
-					FlxG.save.data.songArray = [];
+					FlxG.save.erase();
 					FlxG.switchState(new MainMenuState());
 				}
 				if (FlxG.keys.pressed.DELETE)
@@ -291,6 +271,16 @@ class MainMenuState extends MusicBeatState
 										MusicBeatState.switchState(new SoundTestMenu());									
 									case 'options':
 										MusicBeatState.switchState(new OptionsState());
+									case 'fatal':
+										FlxG.sound.music.stop();
+
+										FlxG.switchState(new MP4State("fatal2", false, function() {
+											PlayState.SONG = Song.loadFromJson('fatality-hard', 'fatality');
+											PlayState.isStoryMode = false;
+											PlayState.storyDifficulty = 2;
+											PlayState.storyWeek = 1;
+											LoadingState.loadAndSwitchState(new PlayState(), true);	
+										}));
 								}
 							});
 						}
@@ -337,15 +327,6 @@ class MainMenuState extends MusicBeatState
 					spr.animation.play('lock');
 				}
 			spr.animation.play('idle');
-			
-			/*
-			if (huh != 0)
-			{
-				FlxTween.cancelTweensOf(spr);
-			}
-			FlxTween.tween(spr, {x: 100 + ((curSelected * -1 + spr.ID + 1) * 220) , y: 40 + ((curSelected * -1 + spr.ID + 1) * 140)}, 0.2);
-			*/
-
 			
 			
 			if (spr.ID == curSelected && finishedFunnyMove)

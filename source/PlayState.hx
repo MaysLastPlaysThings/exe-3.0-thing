@@ -1582,7 +1582,7 @@ class PlayState extends MusicBeatState
 		// use this for 4:3 aspect ratio shit lmao
 		switch (SONG.song.toLowerCase())
 		{
-			case 'fatality' | "milk":
+			case 'fatality' | "milk" | "b4cksl4sh":
 				isFixedAspectRatio = true;
 			default:
 				isFixedAspectRatio = false;
@@ -2514,14 +2514,6 @@ class PlayState extends MusicBeatState
 					});
 
 				case 'sunshine':
-					/*var startthingy:FlxSprite = new FlxSprite();
-
-						startthingy.frames = Paths.getSparrowAtlas('TdollStart', 'exe');
-						startthingy.animation.addByPrefix('sus', 'Start', 24, false);
-						startthingy.cameras = [camHUD];
-						add(startthingy);
-						startthingy.screenCenter(); */
-
 					var ready:FlxSprite = new FlxSprite().loadGraphic(Paths.image('ready', 'exe'));
 					var set:FlxSprite = new FlxSprite().loadGraphic(Paths.image('set', 'exe'));
 					var go:FlxSprite = new FlxSprite().loadGraphic(Paths.image('go', 'exe'));
@@ -2579,15 +2571,14 @@ class PlayState extends MusicBeatState
 								FlxG.sound.play(Paths.sound('Fatal_3'));
 							case 1:
 								FlxG.sound.play(Paths.sound('Fatal_2'));
-								var ready:FlxSprite = new FlxSprite().loadGraphic(Paths.image("StartScreens/fatal_2"));
+								var ready:FlxSprite = new FlxSprite().loadGraphic(Paths.image("StartScreens/Fatal_2", "exe"));
 								ready.scrollFactor.set();
-
 								ready.setGraphicSize(Std.int(ready.width * daPixelZoom));
-
 								ready.updateHitbox();
-
 								ready.screenCenter();
+								ready.cameras = [camHUD];
 								add(ready);
+
 								countDownSprites.push(ready);
 								FlxTween.tween(ready, {alpha: 0}, Conductor.crochet / 1000, {
 									ease: FlxEase.cubeInOut,
@@ -2600,13 +2591,13 @@ class PlayState extends MusicBeatState
 								});
 							case 2:
 								FlxG.sound.play(Paths.sound('Fatal_1'));
-								var set:FlxSprite = new FlxSprite().loadGraphic(Paths.image("StartScreens/fatal_1"));
+								var set:FlxSprite = new FlxSprite().loadGraphic(Paths.image("StartScreens/Fatal_1", "exe"));
 								set.scrollFactor.set();
-
 								set.setGraphicSize(Std.int(set.width * daPixelZoom));
-
 								set.screenCenter();
+								set.cameras = [camHUD];
 								add(set);
+
 								countDownSprites.push(set);
 								FlxTween.tween(set, {alpha: 0}, Conductor.crochet / 1000, {
 									ease: FlxEase.cubeInOut,
@@ -2619,15 +2610,15 @@ class PlayState extends MusicBeatState
 								});
 							case 3:
 								FlxG.sound.play(Paths.sound('Fatal_go'));
-								var go:FlxSprite = new FlxSprite().loadGraphic(Paths.image("StartScreens/fatal_go"));
+
+								var go:FlxSprite = new FlxSprite().loadGraphic(Paths.image("StartScreens/Fatal_Go", "exe"));
 								go.scrollFactor.set();
-
 								go.setGraphicSize(Std.int(go.width * daPixelZoom));
-
 								go.updateHitbox();
-
 								go.screenCenter();
+								go.cameras = [camHUD];
 								add(go);
+
 								countDownSprites.push(go);
 								FlxTween.tween(go, {alpha: 0}, Conductor.crochet / 1000, {
 									ease: FlxEase.cubeInOut,
@@ -3073,16 +3064,16 @@ class PlayState extends MusicBeatState
 			}
 
 			/*if (curStage == '') saving this for something hehehe
-									{
-										healthBar.angle += 90;
-										healthBar.screenCenter();
-										healthBar.x += 580;
+													{
+														healthBar.angle += 90;
+														healthBar.screenCenter();
+														healthBar.x += 580;
 	
-										iconP1.x += 1130;
-										iconP2.x += 1130;
+														iconP1.x += 1130;
+														iconP2.x += 1130;
 	
-										healthBarBG.angle += 90;
-										healthBarBG.x += 580;
+														healthBarBG.angle += 90;
+														healthBarBG.x += 580;
 				}*/
 
 			for (i in 0...playerStrums.length)
@@ -3139,6 +3130,7 @@ class PlayState extends MusicBeatState
 
 				var introAlts:Array<String> = introAssets.get('default');
 				var antialias:Bool = ClientPrefs.globalAntialiasing;
+
 				if (isPixelStage)
 				{
 					introAlts = introAssets.get('pixel');
@@ -4397,10 +4389,6 @@ class PlayState extends MusicBeatState
 				{
 					switch (curSong)
 					{
-						case 'too-slow':
-							startSong();
-						case 'endless':
-							startSong();
 						default:
 							startSong();
 					}
@@ -4518,13 +4506,13 @@ class PlayState extends MusicBeatState
 		}
 
 		/*if(trueFatal!=null){
-								var scaleW = trueFatal.width / (FlxG.width / FlxG.camera.zoom);
-								var scaleH = trueFatal.height / (FlxG.height / FlxG.camera.zoom);
+										var scaleW = trueFatal.width / (FlxG.width / FlxG.camera.zoom);
+										var scaleH = trueFatal.height / (FlxG.height / FlxG.camera.zoom);
 		
-								var scale = scaleW > scaleH ? scaleW : scaleH;
+										var scale = scaleW > scaleH ? scaleW : scaleH;
 		
-								trueFatal.scale.x = scale;
-								trueFatal.scale.y = scale;
+										trueFatal.scale.x = scale;
+										trueFatal.scale.y = scale;
 			}*/
 
 		camNotes.zoom = camHUD.zoom;
@@ -5958,22 +5946,22 @@ class PlayState extends MusicBeatState
 
 		switch (SONG.song.toLowerCase())
 		{
-			case "triple-trouble":
-				if (FlxG.save.data.tripleTroubleFinnished != "finalescape")
-				{
-					FlxG.save.data.charactersUnlocked.push("finale");
-					FlxG.save.data.tripleTroubleFinnished = "true";
-					FlxG.save.flush();
-
-					Sys.exit(1);
+			case "b4cksl4sh":
+				if (!CharSongList.charactersUnlocked.contains("sl4sh")) {
+					CharSongList.charactersUnlocked.push("sl4sh");
+					CharSongList.save();
 				}
-			case "final-escape":
-				FlxG.save.data.tripleTroubleFinnished = "finalescape";
+
 			case "fatality":
+				if (!CharSongList.charactersUnlocked.contains("fatalerror")) {
+					CharSongList.charactersUnlocked.push("fatalerror");
+					CharSongList.save();
+				}
+	
 				#if windows
 				try
 				{
-					Sys.command('${Sys.getCwd()}\\assets\\exe\\FatalError.exe');
+					Sys.command('"${Sys.getCwd()}\\assets\\exe\\FatalError.exe"');
 				}
 				catch (e:Dynamic)
 				{
@@ -6610,10 +6598,10 @@ class PlayState extends MusicBeatState
 
 			/*boyfriend.stunned = true;
 		
-											// get stunned for 1/60 of a second, makes you able to
-											new FlxTimer().start(1 / 60, function(tmr:FlxTimer)
-											{
-												boyfriend.stunned = false;
+														// get stunned for 1/60 of a second, makes you able to
+														new FlxTimer().start(1 / 60, function(tmr:FlxTimer)
+														{
+															boyfriend.stunned = false;
 				});*/
 
 			var animToPlay:String = '';
