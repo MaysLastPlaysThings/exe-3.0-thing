@@ -38,7 +38,7 @@ class Intro extends MusicBeatState
 	{
 		FlxG.save.bind('exenew', 'kittysleeper');
 
-		var fatalBool:Bool = FlxG.random.bool(100) && FlxG.save.data.canGetFatal == null || FlxG.save.data.canGetFatal != null && Paths.getTextFromFile("data/containFatalError.cnt") != "Fatal_Prevention_Measures = false";
+		var fatalBool:Bool = FlxG.random.bool(25) && FlxG.save.data.canGetFatal == null || FlxG.save.data.canGetFatal != null && Paths.getTextFromFile("data/containFatalError.cnt") != "Fatal_Prevention_Measures = false";
 
 		trace(Paths.getTextFromFile("data/containFatalError.cnt"));
 
