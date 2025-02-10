@@ -6954,7 +6954,7 @@ class PlayState extends MusicBeatState
 
 	function chromaVideo(name:String)
 	{
-		var video = new VideoSprite(0, 0);
+		var video:VideoSprite = new VideoSprite(0, 0);
 		video.scrollFactor.set();
 		video.cameras = [camHUD];
 		video.shader = new GreenScreenShader();

@@ -21,7 +21,7 @@ class MP4State extends FlxState {
     override public function create() {
         super.create();
 
-        var video = new VideoHandler();
+        var video:VideoHandler = new VideoHandler();
         video.canSkip = canSkip;
         video.finishCallback = onComplete;
         video.playVideo(Paths.video(videoName));
