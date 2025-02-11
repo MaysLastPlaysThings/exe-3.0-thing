@@ -172,8 +172,17 @@ class MainMenuState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
-		if (FlxG.keys.justPressed.ONE) //debug
+		if (FlxG.keys.justPressed.ONE) { //debug
 			ClientPrefs.beatweek = true;
+			ClientPrefs.saveSettings();
+
+			FlxG.resetState();
+		}
+
+		if (FlxG.keys.justPressed.TWO) { //debug
+			CharSongList.charactersUnlocked = CharSongList.characters;
+			CharSongList.save();
+		}
 		
 		if (FlxG.keys.justPressed.DELETE)
 		{

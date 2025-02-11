@@ -83,9 +83,6 @@ class StoryMenuState extends MusicBeatState
 		WeekData.reloadWeekFiles(true);
 		persistentUpdate = persistentDraw = true;
 
-		if (CharSongList.charactersUnlocked.contains("finale"))
-			songArray.push("final-escape");
-
 		var bg:FlxSprite;
 
 		bg = new FlxSprite(0, 0);
@@ -231,8 +228,8 @@ class StoryMenuState extends MusicBeatState
 
 			real += diff;
 			if (real < 0)
-				real = songArray.length - 1;
-			else if (real > songArray.length - 1)
+				real = FlxG.save.data.storyProgress;
+			else if (real > FlxG.save.data.storyProgress)
 				real = 0;
 
 			portrait.loadGraphic(Paths.image('fpstuff/' + songArray[real]));
