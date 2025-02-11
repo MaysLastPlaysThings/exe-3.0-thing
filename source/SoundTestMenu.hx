@@ -47,6 +47,16 @@ class SoundTestMenu extends MusicBeatState
 
 	var cam:FlxCamera;
 
+	var peakSongs:Map<String, Array<String>> = [
+		"12 25" => ["endless"],
+		"7 7" => ["cycles"],
+		"8 21" => ["chaos"],
+		"4 20" => ["too-fest"],
+		"6 20" => ["substantial", "digitalized"],
+		"66 6" => ["sunshine", "soulless"],
+		"20 5" => ["b4cksl4sh"]
+	];
+
 	override function create()
 	{
 		cam = new FlxCamera();
@@ -54,7 +64,7 @@ class SoundTestMenu extends MusicBeatState
 		cam.bgColor.alpha = 0;
 		FlxCamera.defaultCameras = [cam];
 
-    #if windows
+        #if windows
 		DiscordClient.changePresence('In the Sound Test Menu', null);
 		#end
 
@@ -162,106 +172,25 @@ class SoundTestMenu extends MusicBeatState
 
 	function doTheThing(first:Int, second:Int)
 	{
-		if (first == 12 && second == 25)
+		var sigmaArray:String = first + " " + second;
+
+		if (peakSongs.exists(sigmaArray))
 		{
 			woahmanstopspammin = false;
-			PlayState.SONG = Song.loadFromJson('endless-hard', 'endless');
-			PlayState.isStoryMode = false;
+			PlayStateChangeables.nocheese = false;
+
+			PlayState.SONG = Song.loadFromJson(peakSongs.get(sigmaArray)[0] + "-hard", peakSongs.get(sigmaArray)[0]);
+			PlayState.storyPlaylist = peakSongs.get(sigmaArray);
+			PlayState.isStoryMode = true;
 			PlayState.isEncoreMode = false;
 			PlayState.storyDifficulty = 2;
 			PlayState.storyWeek = 1;
-
 			flashyWashy(true);
 			new FlxTimer().start(2, function(tmr:FlxTimer)
 			{
 				LoadingState.loadAndSwitchState(new PlayState());
 			});
 		}
-		else if (first == 7 && second == 7)
-		{
-			woahmanstopspammin = false;
-			PlayStateChangeables.nocheese = false;
-
-			PlayState.SONG = Song.loadFromJson('cycles-hard', 'cycles');
-			PlayState.isStoryMode = false;
-			PlayState.isEncoreMode = false;
-			PlayState.storyDifficulty = 2;
-			PlayState.storyWeek = 1;
-
-			flashyWashy(true);
-			new FlxTimer().start(2, function(tmr:FlxTimer)
-			{
-				LoadingState.loadAndSwitchState(new PlayState());
-			});
-		}
-		else if (first == 66 && second == 6)
-		{
-			woahmanstopspammin = false;
-			PlayStateChangeables.nocheese = false;
-
-			PlayState.SONG = Song.loadFromJson('sunshine', 'sunshine');
-			PlayState.isStoryMode = false;
-			PlayState.isEncoreMode = false;
-			PlayState.storyDifficulty = 2;
-			PlayState.storyWeek = 1;
-
-			flashyWashy(true);
-			new FlxTimer().start(2, function(tmr:FlxTimer)
-			{
-				LoadingState.loadAndSwitchState(new PlayState());
-			});
-		}
-		else if (first == 8 && second == 21)
-		{
-			woahmanstopspammin = false;
-			PlayStateChangeables.nocheese = false;
-
-			PlayState.SONG = Song.loadFromJson('chaos-hard', 'chaos');
-			PlayState.isStoryMode = false;
-			PlayState.isEncoreMode = false;
-			PlayState.storyDifficulty = 2;
-			PlayState.storyWeek = 1;
-
-			flashyWashy(true);
-			new FlxTimer().start(2, function(tmr:FlxTimer)
-			{
-				LoadingState.loadAndSwitchState(new PlayState());
-			});
-		}
-		else if (first == 4 && second == 20)
-		{
-			woahmanstopspammin = false;
-			PlayStateChangeables.nocheese = false;
-
-			PlayState.SONG = Song.loadFromJson('too-fest-hard', 'too-fest');
-			PlayState.isStoryMode = false;
-			PlayState.isEncoreMode = false;
-			PlayState.storyDifficulty = 2;
-			PlayState.storyWeek = 1;
-
-			flashyWashy(true);
-			new FlxTimer().start(2, function(tmr:FlxTimer)
-			{
-				LoadingState.loadAndSwitchState(new PlayState());
-			});
-		}
-		else if (first == 20 && second == 5)
-		{
-			woahmanstopspammin = false;
-			PlayStateChangeables.nocheese = false;
-
-			PlayState.SONG = Song.loadFromJson('b4cksl4sh-hard', 'b4cksl4sh');
-			PlayState.isStoryMode = false;
-			PlayState.isEncoreMode = false;
-			PlayState.storyDifficulty = 2;
-			PlayState.storyWeek = 1;
-
-			flashyWashy(true);
-			new FlxTimer().start(2, function(tmr:FlxTimer)
-			{
-				LoadingState.loadAndSwitchState(new PlayState());
-			});
-		}	
 		else if (first == 41 && second == 1)
 		{
 			woahmanstopspammin = false;
