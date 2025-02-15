@@ -1,5 +1,6 @@
 package;
 
+import sys.io.File;
 import flixel.FlxG;
 #if sys
 import Main;
@@ -10,6 +11,9 @@ import hscript.*;
 
 using StringTools;
 
+/**
+ * THIS NOW ONLY WORKS FOR MODS FOLDER, MOST OTHER THINGS WILL BE SOFT CODED!!!
+ */
 class HScript
 {
 	#if sys
@@ -30,11 +34,13 @@ class HScript
 
 	#if sys
 	public function new(scriptPath:String)
-	{
+	{		
 		path = scriptPath;
-		if (!scriptPath.startsWith("assets/"))
-			scriptPath = "assets/" + scriptPath;
-		var boolArray:Array<Bool> = [for (ext in allowedExtensions) Assets.exists('$scriptPath.$ext')];
+		
+		// if (!scriptPath.startsWith("assets/"))
+		// 	scriptPath = "assets/" + scriptPath;
+		
+		var boolArray:Array<Bool> = [for (ext in allowedExtensions) sys.FileSystem.exists(Paths.modFolders('$scriptPath.$ext'))];
 		isBlank = (!boolArray.contains(true));
 		if (boolArray.contains(true))
 		{
@@ -47,7 +53,7 @@ class HScript
 			{
 				var path = scriptPath + "." + allowedExtensions[boolArray.indexOf(true)];
 				parser.line = 1; // Reset the parser position.
-				expr = parser.parseString(Assets.getText(path));
+				expr = parser.parseString(File.getContent(Paths.modFolders(path)));
 				interp.variables.set("trace", hscriptTrace);
 			}
 			catch (e)
@@ -93,7 +99,8 @@ class HScript
 	{
 		var errorString:String = e.toString();
 
-		FlxG.stage.window.alert(errorString.substr(7, errorString.length), path);
+		FlxG.stage.window.alert(errorString, path);
+		trace(e);
 	}
 
 	public function callFunction(name:String, ?params:Array<Dynamic>)

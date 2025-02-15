@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="menu_fatal.png">
+<SubTexture name="fatal basic instance 10000" x="0" y="263" width="350" height="77" frameX="-21" frameY="-10" frameWidth="400" frameHeight="100" />
+<SubTexture name="fatal basic instance 10001" x="0" y="0" width="364" height="93" frameX="-9" frameY="-4" frameWidth="400" frameHeight="100" />
+<SubTexture name="fatal basic instance 10002" x="0" y="180" width="358" height="83" frameX="-28" frameY="-8" frameWidth="400" frameHeight="100" />
+<SubTexture name="fatal basic instance 10003" x="0" y="93" width="362" height="87" frameX="-17" frameY="-2" frameWidth="400" frameHeight="100" />
+</TextureAtlas>

@@ -54,7 +54,8 @@ class SoundTestMenu extends MusicBeatState
 		"4 20" => ["too-fest"],
 		"6 20" => ["substantial", "digitalized"],
 		"66 6" => ["sunshine", "soulless"],
-		"20 5" => ["b4cksl4sh"]
+		"20 5" => ["b4cksl4sh"],
+		"11 20" => ["burning"]
 	];
 
 	override function create()

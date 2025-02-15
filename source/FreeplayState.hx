@@ -125,9 +125,6 @@ class FreeplayState extends MusicBeatState // REWRITE FREEPLAY!?!?!? HELL YEA!!!
 		add(uhhdumbassline);
 
 		add(boxgrp);
-
-		// add(new FlxSprite().loadGraphic(Paths.image("FreePlayShit"))); // do not.
-
 		add(textgrp);
 
 		scoreText = new FlxText(30, 105, FlxG.width, "");
