@@ -1,4 +1,4 @@
-package;
+package scripts;
 
 import sys.io.File;
 import flixel.FlxG;
