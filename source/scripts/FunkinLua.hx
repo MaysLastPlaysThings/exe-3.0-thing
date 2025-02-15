@@ -1,3 +1,5 @@
+package scripts;
+
 #if LUA_ALLOWED
 import llua.Lua;
 import llua.LuaL;

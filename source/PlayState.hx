@@ -5,7 +5,6 @@ package;
 // HIS NAME IS CHAOTIX!!!
 import openfl.display.Window;
 import flixel.system.scaleModes.RatioScaleMode;
-import FunkinLua;
 import Section.SwagSection;
 import Song.SwagSong;
 import StageData;
