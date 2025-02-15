@@ -18,6 +18,7 @@ class CharSongList
 		"curse" => ["malediction"],
 		"satanos" => ["perdition"],
 		"starved" => ["prey", "fight-or-flight"],
+		"sonic has passed" => ["burning"],
 		"needlemouse" => ["round-a-bout"],
 		"hog" => ["manual-blast"],
 		"sunky" => ["milk"],
@@ -39,6 +40,7 @@ class CharSongList
 		"curse",
 		"satanos",
 		"starved",
+		"sonic has passed",
 		"needlemouse",
 		"hog",
 		"sunky",
@@ -50,13 +52,16 @@ class CharSongList
 
 	public static var songToFreeplayChar:Map<String, String> = [
 		"endless" => "majin",
+		"choas" => "fleetway",
 		"fatality" => "fatalerror",
 		"b4cksl4sh" => "sl4sh",
+		"burning" => "sonic has passed",
 		"soulless" => "tails doll",
 		"malediction" => "curse",
 		"digitalized" => "xterion",
 		"manual-blast" => "hog",
-		"black-sun" => "faker"
+		"black-sun" => "faker",
+		"perdiction" => "satanos"
 	];
 
 	public static function init()

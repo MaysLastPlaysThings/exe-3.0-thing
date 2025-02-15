@@ -1,0 +1,76 @@
+package mainmenu;
+
+import flixel.math.FlxMath;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+import flixel.FlxSprite;
+import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
+import flixel.addons.display.FlxBackdrop;
+import flixel.FlxG;
+import flixel.FlxCamera;
+
+class ExtrasMenuSubState extends MusicBeatSubstate
+{
+	var menuItems:Array<Dynamic> = [
+		{
+			name: "skins",
+			onPress: function()
+			{
+				FlxG.switchState(new SkinsMenuState());
+			}
+		},
+		{
+			name: "temp",
+			onPress: function()
+			{
+				FlxG.resetState();
+			}
+		}
+	];
+	var menuObjects:FlxTypedSpriteGroup<FlxSprite> = new FlxTypedSpriteGroup();
+
+	var curSelected:Int = 0;
+
+	override public function new()
+	{
+		trace("extra time!");
+
+		super();
+		this.camera = FlxG.cameras.add(new FlxCamera(), false);
+		this.camera.bgColor = 0xFF;
+
+		add(menuObjects);
+
+		for (i => item in menuItems)
+		{
+			var obj = new FlxSprite(FlxG.width * 10, 45 + (i * 100));
+			obj.frames = Paths.getSparrowAtlas("mainmenu/extras/extras_" + item.name);
+			obj.animation.addByPrefix("idle", item.name + " basic");
+			obj.animation.addByPrefix("select", item.name + " white");
+			obj.animation.play("idle");
+			FlxTween.tween(obj, {x: 720 + (i * 75)}, 1 + (i * 0.25), {ease: FlxEase.expoInOut});
+			menuObjects.add(obj);
+		}
+
+		changeSelection();
+	}
+
+	override public function update(elapsed:Float)
+	{
+		super.update(elapsed);
+
+		if (controls.UI_UP_P)
+			changeSelection(-1);
+		if (controls.UI_DOWN_P)
+			changeSelection(1);
+        if (controls.ACCEPT)
+            menuItems[curSelected].onPress();
+	}
+
+	function changeSelection(amt:Int = 0)
+	{
+		menuObjects.members[curSelected].animation.play("idle");
+		curSelected = FlxMath.wrap(curSelected + amt, 0, menuItems.length - 1);
+		menuObjects.members[curSelected].animation.play("select");
+	}
+}

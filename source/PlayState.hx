@@ -286,7 +286,7 @@ class PlayState extends MusicBeatState
 	private var luaArray:Array<FunkinLua> = [];
 	private var luaDebugGroup:FlxTypedGroup<DebugLuaText>;
 
-	public var woahHScript:HScript;
+	public var woahHScripts:Array<HScript> = [];
 
 	public var introSoundsSuffix:String = '';
 
@@ -519,6 +519,7 @@ class PlayState extends MusicBeatState
 		"you-cant-run", // for the pixel part in specific
 		"fatality",
 		"b4cksl4sh",
+		"burning"
 	];
 
 	var hudStyle:String = 'sonic2';
@@ -526,10 +527,10 @@ class PlayState extends MusicBeatState
 	public var sonicHUDStyles:Map<String, String> = [
 		"fatality" => "sonic3",
 		"prey" => "soniccd",
-		"you-cant-run" => "sonic1", // because its green hill zone so it should be sonic1
+		"you-cant-run" => "sonic1",
 		"our-horizon" => "chaotix",
-		"my-horizon" => "chaotix" // "songName" => "styleName",
-		// styles are sonic2 and sonic3
+		"my-horizon" => "chaotix",
+		"b4cksl4sh" => "sonic1"
 		// defaults to sonic2 if its in sonicHUDSongs but not in here
 	];
 
@@ -1103,7 +1104,6 @@ class PlayState extends MusicBeatState
 				base = new FlxSprite(-200, 100);
 				base.frames = Paths.getSparrowAtlas('fatal/launchbase');
 				base.animation.addByIndices('base', 'idle', [0, 1, 2, 3, 4, 5, 6, 8, 9], "", 12, true);
-				// base.animation.addByIndices('lol', 'idle',[8, 9], "", 12);
 				base.animation.play('base');
 				base.scale.x = 5;
 				base.scale.y = 5;
@@ -1583,19 +1583,28 @@ class PlayState extends MusicBeatState
 				hogOverlay = new BGSprite('hog/overlay', -800, -300, 1.1, 0.9);
 				hogOverlay.scale.x = 1.25;
 				hogOverlay.scale.y = 1.25;
-			case 'requite':
-				var bg = new FlxSprite(-750, 50).loadGraphic(Paths.image("requital/reqbg"));
-				bg.scale.set(1.40, 1.40);
-				bg.antialiasing = false;
-				add(bg);
 			default:
-				// oOOOoO nothing!
+				trace("HScript stage");
+
+				var woahHScript = new HScript('stages/${SONG.stage}');
+
+				if (!woahHScript.isBlank && woahHScript.expr != null)
+				{
+					woahHScript.interp.scriptObject = this;
+					woahHScript.setValue('add', add);
+					woahHScript.setValue('remove', remove);
+					woahHScript.interp.execute(woahHScript.expr);
+				}
+
+				woahHScripts.push(woahHScript);		
 		}
+
+		callOnLuas('onCreate', []);
 
 		// use this for 4:3 aspect ratio shit lmao
 		switch (SONG.song.toLowerCase())
 		{
-			case 'fatality' | "milk" | "b4cksl4sh":
+			case 'fatality' | "milk" | "b4cksl4sh" | "burning" | "sunshine":
 				isFixedAspectRatio = true;
 			default:
 				isFixedAspectRatio = false;
@@ -1625,51 +1634,6 @@ class PlayState extends MusicBeatState
 				add(gfGroup);
 				add(dadGroup);
 				add(boyfriendGroup);
-		}
-
-		switch (curStage)
-		{
-			case 'endless-forest':
-				var ok:BGSprite = new BGSprite('FunInfiniteStage', -600, -200, 1.1, 0.9);
-				ok.scale.x = 1.25;
-				ok.scale.y = 1.25;
-				ok.blend = LIGHTEN;
-				add(ok);
-
-				add(fgmajin);
-				add(fgmajin2);
-			case 'TDP2':
-				gfGroup.visible = false;
-				boyfriendGroup.visible = false;
-				add(shadowTheFuckingHedgehog);
-			case 'trioStage':
-				gfGroup.visible = false;
-				add(fgTree1);
-				add(fgTree2);
-			case 'DDDDD':
-				gfGroup.visible = false;
-				var vcr:VCRDistortionShader;
-				vcr = new VCRDistortionShader();
-
-				var daStatic:BGSprite = new BGSprite('daSTAT', 0, 0, 1.0, 1.0, ['staticFLASH'], true);
-				daStatic.cameras = [camHUD];
-				daStatic.setGraphicSize(FlxG.width, FlxG.height);
-				daStatic.screenCenter();
-				daStatic.alpha = 0.05;
-				add(daStatic);
-
-				curShader = new ShaderFilter(vcr);
-
-				camGame.setFilters([curShader]);
-				camHUD.setFilters([curShader]);
-				camOther.setFilters([curShader]);
-			case 'hog':
-				gfGroup.visible = false;
-				add(hogRocks);
-				add(hogOverlay);
-				hogOverlay.blend = LIGHTEN;
-			case 'xterion' | 'starved-pixel' | 'starved' | 'chamber' | 'sanicStage' | 'void' | 'fatality' | 'cycles-hills':
-				gfGroup.visible = false;
 		}
 
 		var gfVersion:String = SONG.player3;
@@ -1717,6 +1681,49 @@ class PlayState extends MusicBeatState
 
 		switch (curStage)
 		{
+			case 'endless-forest':
+				var ok:BGSprite = new BGSprite('FunInfiniteStage', -600, -200, 1.1, 0.9);
+				ok.scale.x = 1.25;
+				ok.scale.y = 1.25;
+				ok.blend = LIGHTEN;
+				add(ok);
+
+				add(fgmajin);
+				add(fgmajin2);
+
+				if (SONG.player1 != "endless_bf")
+					boyfriend.color = 0xCA171996;
+			case 'TDP2':
+				gfGroup.visible = false;
+				boyfriendGroup.visible = false;
+				add(shadowTheFuckingHedgehog);
+			case 'trioStage':
+				gfGroup.visible = false;
+				add(fgTree1);
+				add(fgTree2);
+			case 'DDDDD':
+				gfGroup.visible = false;
+				var vcr:VCRDistortionShader;
+				vcr = new VCRDistortionShader();
+
+				var daStatic:BGSprite = new BGSprite('daSTAT', 0, 0, 1.0, 1.0, ['staticFLASH'], true);
+				daStatic.cameras = [camHUD];
+				daStatic.setGraphicSize(FlxG.width, FlxG.height);
+				daStatic.screenCenter();
+				daStatic.alpha = 0.05;
+				add(daStatic);
+
+				curShader = new ShaderFilter(vcr);
+
+				camGame.setFilters([curShader]);
+				camHUD.setFilters([curShader]);
+				camOther.setFilters([curShader]);
+			case 'hog':
+				gfGroup.visible = false;
+				add(hogRocks);
+				add(hogOverlay);
+				hogOverlay.blend = LIGHTEN;
+
 			case 'satanos':
 				add(satFgTree);
 				add(satFgPlant);
@@ -1730,6 +1737,8 @@ class PlayState extends MusicBeatState
 			case 'cant-run-xd':
 				dad.x -= 75;
 			case 'chamber':
+				gfGroup.visible = false;
+
 				boyfriend.x -= 150;
 				boyfriend.y -= 50;
 				add(thechamber);
@@ -1758,6 +1767,8 @@ class PlayState extends MusicBeatState
 				dad.x -= 550;
 				dad.y += 40;
 				boyfriend.y += 140;
+
+				gfGroup.visible = false;
 			case 'fuckles':
 				boyfriend.y += 68;
 				gf.x += 375;
@@ -1766,18 +1777,15 @@ class PlayState extends MusicBeatState
 				dad.y += 70;
 			case 'starved-pixel':
 				add(stardustFloorPixel);
+				gfGroup.visible = false;
 				boyfriend.x += 250;
 				boyfriend.y += 410;
 				dad.x -= 1050;
 				dad.y += 400;
 			case 'starved':
-				// boyfriend.x -= 500;
 				boyfriend.y += 75;
 				dad.x += 300;
 				dad.y -= 350;
-			case 'hog':
-				dad.y += 30;
-				dad.x += 75;
 			case 'slash':
 				boyfriend.y -= 35;
 				boyfriend.x += 175;
@@ -2316,7 +2324,7 @@ class PlayState extends MusicBeatState
 			luaArray.push(new FunkinLua(luaFile));
 		#end
 
-		woahHScript = new HScript('assets/data/${Paths.formatToSongPath(SONG.song)}/hscript');
+		var woahHScript = new HScript('data/${Paths.formatToSongPath(SONG.song)}/hscript');
 
 		if (!woahHScript.isBlank && woahHScript.expr != null)
 		{
@@ -2325,6 +2333,7 @@ class PlayState extends MusicBeatState
 			woahHScript.setValue('remove', remove);
 			woahHScript.interp.execute(woahHScript.expr);
 		}
+		woahHScripts.push(woahHScript);
 
 		add(barbedWires);
 		add(wireVignette);
@@ -2333,25 +2342,19 @@ class PlayState extends MusicBeatState
 		{
 			case "final-escape":
 				camHUD.alpha = 0;
-			case 'forestall-desire':
-				playerStrums.forEach(function(spr:FlxSprite)
-				{
-					spr.x -= 645;
-				});
-				opponentStrums.forEach(function(spr:FlxSprite)
-				{
-					spr.x += 645;
-				});
-				startCountdown();
 			case 'personel':
 				camGame.alpha = 0;
 				startCountdown();
-			case 'soulless':
-				camGame.alpha = 0;
-				camHUD.alpha = 0;
-				startCountdown();
 
-			case 'too-slow' | 'you-cant-run' | 'triple-trouble' | 'endless' | 'cycles' | 'prey' | 'fight-or-flight' | 'round-a-bout':
+			case 'too-slow', 'you-cant-run', 'triple-trouble', 'soulless': //videoCutscene
+				inCutscene = true;
+
+				var video:VideoHandler = new VideoHandler();
+				video.canSkip = true;
+				video.finishCallback = startCountdown;
+				video.playVideo(Paths.video("cutscenes/" + daSong));
+		
+			case 'endless' | 'cycles' | 'prey' | 'fight-or-flight' | 'round-a-bout':
 				if (daSong == 'too-slow' || daSong == 'you-cant-run' || daSong == 'cycles')
 				{
 					startSong();
@@ -2615,6 +2618,8 @@ class PlayState extends MusicBeatState
 									countDownSprites.remove(go);
 									remove(go);
 									go.destroy();
+
+									startCountdown();
 								}
 							});
 						case 4:
@@ -2623,18 +2628,12 @@ class PlayState extends MusicBeatState
 						tmr.reset();
 
 					swagCounter += 1;
-				});
+				});				
 
 			default:
 				startCountdown();
 		}
 
-		switch (curSong)
-		{
-			case 'sunshine', 'chaos':
-			default:
-				startCountdown();
-		}
 		RecalculateRating();
 
 		// PRECACHING MISS SOUNDS BECAUSE I THINK THEY CAN LAG PEOPLE AND FUCK THEM UP IDK HOW HAXE WORKS
@@ -5998,22 +5997,8 @@ class PlayState extends MusicBeatState
 
 					PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0] + difficulty, PlayState.storyPlaylist[0]);
 					FlxG.sound.music.stop();
-					var winterHorrorlandNext = (Paths.formatToSongPath(SONG.song) == "eggnog");
-					if (winterHorrorlandNext)
-					{
-						new FlxTimer().start(1.5, function(tmr:FlxTimer)
-						{
-							cancelFadeTween();
-							// resetSpriteCache = true;
-							LoadingState.loadAndSwitchState(new PlayState());
-						});
-					}
-					else
-					{
-						cancelFadeTween();
-						// resetSpriteCache = true;
-						LoadingState.loadAndSwitchState(new PlayState());
-					}
+					cancelFadeTween();
+					LoadingState.loadAndSwitchState(new PlayState());
 				}
 			}
 			else if (isEncoreMode)
@@ -8572,12 +8557,11 @@ class PlayState extends MusicBeatState
 
 		try
 		{
-			woahHScript.callFunction(event, args);
+			for (scriptLol in woahHScripts)
+				scriptLol.callFunction(event, args);
 		}
-		catch (e)
-		{
-			trace(e);
-		}
+		catch (e){}
+
 		return returnVal;
 	}
 
