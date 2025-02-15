@@ -9,7 +9,6 @@ import Section.SwagSection;
 import Song.SwagSong;
 import StageData;
 import openfl.system.Capabilities;
-import WiggleEffect.WiggleEffectType;
 import editors.CharacterEditorState;
 import editors.ChartingState;
 import flixel.FlxBasic;

@@ -19,3 +19,4 @@ import shaders.OverlayShader;
 import shaders.StaticShader;
 import shaders.WeedVision;
 import shaders.WiggleEffect;
+import shaders.WiggleEffect.WiggleEffectType;
