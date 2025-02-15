@@ -1,4 +1,4 @@
-package;
+package data;
 
 import flixel.FlxState;
 import hxcodec.VideoHandler;
