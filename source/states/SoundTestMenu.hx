@@ -15,9 +15,6 @@ import flixel.util.FlxColor;
 import lime.utils.Assets;
 import flixel.FlxCamera;
 import openfl.filters.ShaderFilter;
-#if windows
-import Discord.DiscordClient;
-#end
 
 class SoundTestMenu extends MusicBeatState
 {

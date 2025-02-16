@@ -1,8 +1,5 @@
 package states;
 
-#if desktop
-import Discord.DiscordClient;
-#end
 import flash.text.TextField;
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -13,7 +10,6 @@ import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import lime.utils.Assets;
 import flixel.FlxSubState;
-import Achievements;
 
 using StringTools;
 

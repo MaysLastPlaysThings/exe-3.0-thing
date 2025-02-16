@@ -1,9 +1,7 @@
 package substates;
 
 import flixel.ui.FlxBar;
-import Controls.Control;
 import flixel.math.FlxMath;
-import Song.SwagSong;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxSubState;

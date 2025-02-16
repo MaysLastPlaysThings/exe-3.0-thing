@@ -5,9 +5,6 @@ package states;
 // HIS NAME IS CHAOTIX!!!
 import openfl.display.Window;
 import flixel.system.scaleModes.RatioScaleMode;
-import Section.SwagSection;
-import Song.SwagSong;
-import StageData;
 import openfl.system.Capabilities;
 import editors.CharacterEditorState;
 import editors.ChartingState;
@@ -81,9 +78,6 @@ import hxcodec.flixel.FlxVideoSprite as VideoSprite;
 
 using StringTools;
 
-#if desktop
-import Discord.DiscordClient;
-#end
 #if sys
 import sys.FileSystem;
 #end

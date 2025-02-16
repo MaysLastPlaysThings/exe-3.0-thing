@@ -1,9 +1,6 @@
 package states.storymenu;
 
 import flixel.effects.FlxFlicker;
-#if desktop
-import Discord.DiscordClient;
-#end
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxSubState;
@@ -17,7 +14,6 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.net.curl.CURLCode;
-import WeekData;
 
 using StringTools;
 

@@ -19,9 +19,6 @@ import flixel.system.FlxSound;
 import sys.FileSystem;
 import flixel.addons.display.FlxBackdrop;
 import flixel.addons.effects.FlxSkewedSprite;
-#if windows
-import Discord.DiscordClient;
-#end
 
 using StringTools;
 

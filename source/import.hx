@@ -35,10 +35,56 @@ import scripts.HScript;
 import scripts.FunkinLua;
 
 // Important Things
-import data.Character;
-import data.MP4State;
+import data.backend.Character;
+import data.backend.Character.AnimArray;
+import data.backend.Character.CharacterFile;
 import data.CharSongList;
 import data.CoolUtil;
+import data.Paths;
+import data.SkewSpriteGroup;
+import data.Section;
+import data.Section.SwagSection;
+import data.Song;
+import data.Song.SwagSong;
+import data.cutscenes.MP4State;
+import data.cutscenes.DialogueBoxPsych;
+import data.cutscenes.DialogueBox;
+import data.backend.InputFormatter;
+import data.backend.Highscore;
+import data.backend.ModchartShit;
+import data.backend.StageData;
+import data.backend.WeekData;
+import data.backend.Boyfriend;
+import data.backend.Note;
+import data.backend.NoteSplash;
+import data.backend.StrumNote;
+#if desktop
+import data.Discord;
+import data.Discord.DiscordClient;
+#end
+import data.Controls;
+import data.Controls.Control;
+import data.ClientPrefs;
+import data.backend.PlayerSettings;
+import data.backend.FlxUIDropDownMenuCustom;
+import data.backend.Conductor.BPMChangeEvent;
+import data.backend.Achievements;
+// import data.backend.ChartParser; // It seems like it's not used anywhere, so I'll leave it like this - Mays
+import data.backend.FatalPopup;
+import data.Alphabet;
+import data.Alphabet.AlphaCharacter;
+import data.objects.AttachedSprite;
+import data.objects.AttachedText;
+import data.objects.BackgroundDancer;
+import data.objects.BackgroundGirls;
+import data.objects.BGSprite;
+import data.objects.CheckboxThingie;
+import data.objects.MenuItem;
+import data.objects.MenuCharacter;
+import data.objects.MenuCharacterFile;
+import data.objects.WireSprite;
+import data.objects.Floor;
+import data.objects.HealthIcon;
 
 // Shaders
 import shaders.BlendModeEffect;
@@ -51,3 +97,5 @@ import shaders.StaticShader;
 import shaders.WeedVision;
 import shaders.WiggleEffect;
 import shaders.WiggleEffect.WiggleEffectType;
+import shaders.ColorSwap;
+import shaders.ColorSwapShader;

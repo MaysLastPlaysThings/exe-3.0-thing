@@ -3,7 +3,6 @@ package states;
 import flixel.graphics.FlxGraphic;
 import sys.FileSystem;
 #if desktop
-import Discord.DiscordClient;
 import sys.thread.Thread;
 #end
 import flixel.FlxG;
