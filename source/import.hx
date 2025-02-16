@@ -67,6 +67,7 @@ import data.Controls.Control;
 import data.ClientPrefs;
 import data.backend.PlayerSettings;
 import data.backend.FlxUIDropDownMenuCustom;
+import data.backend.Conductor;
 import data.backend.Conductor.BPMChangeEvent;
 import data.backend.Achievements;
 // import data.backend.ChartParser; // It seems like it's not used anywhere, so I'll leave it like this - Mays
