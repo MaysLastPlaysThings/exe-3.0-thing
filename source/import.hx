@@ -17,8 +17,8 @@ import states.TitleState;
 import states.WarningState;
 
 // SubStates
-import substates.GameoverSubstate;
-import substates.PauseSubstate;
+import substates.GameOverSubstate;
+import substates.PauseSubState;
 import substates.PracticeSubState;
 import substates.MusicBeatSubstate;
 import substates.ResetScoreSubState;
@@ -35,6 +35,7 @@ import scripts.HScript;
 import scripts.FunkinLua;
 
 // Important Things
+import data.Character;
 import data.MP4State;
 import data.CharSongList;
 import data.CoolUtil;
