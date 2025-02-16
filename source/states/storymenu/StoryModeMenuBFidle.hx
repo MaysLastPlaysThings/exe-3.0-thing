@@ -1,4 +1,4 @@
-package;
+package states.storymenu;
 
 import flixel.addons.effects.FlxTrail;
 import flixel.FlxG;

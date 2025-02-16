@@ -1,4 +1,4 @@
-package;
+package states;
 
 // hello welcome to code for sonic.sex 2.5!!!!!!!!!!!!!!!!!!!!!!!!! i am currently shitting
 // HOLY FUCKLES ITS KNUCKLES

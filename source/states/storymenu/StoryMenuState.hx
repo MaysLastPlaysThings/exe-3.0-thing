@@ -1,4 +1,4 @@
-package;
+package states.storymenu;
 
 import flixel.effects.FlxFlicker;
 #if desktop

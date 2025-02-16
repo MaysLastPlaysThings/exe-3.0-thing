@@ -1,4 +1,4 @@
-package;
+package states;
 
 import flixel.FlxState;
 import flixel.graphics.frames.FlxAtlasFrames;

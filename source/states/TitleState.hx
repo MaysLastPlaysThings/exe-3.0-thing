@@ -1,4 +1,4 @@
-package;
+package states;
 
 import flixel.graphics.FlxGraphic;
 import sys.FileSystem;

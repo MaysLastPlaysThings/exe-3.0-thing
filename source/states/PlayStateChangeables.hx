@@ -1,3 +1,5 @@
+package states;
+
 class PlayStateChangeables
 {
     public static var useDownscroll:Bool;
