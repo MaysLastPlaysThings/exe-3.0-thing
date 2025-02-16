@@ -29,6 +29,7 @@ import sys.io.File;
 import Type.ValueType;
 #if desktop
 import data.Discord;
+import data.Discord.DiscordClient;
 #end
 
 using StringTools;
@@ -1117,7 +1118,9 @@ class FunkinLua {
 			luaTrace('musicFadeOut is deprecated! Use soundFadeOut instead.', false, true);
 		});
 
+    #if desktop
 		Discord.DiscordClient.addLuaCallbacks(lua);
+		#end
 
 		call('onCreate', []);
 		#end
