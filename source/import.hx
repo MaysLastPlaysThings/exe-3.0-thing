@@ -81,10 +81,11 @@ import data.objects.BGSprite;
 import data.objects.CheckboxThingie;
 import data.objects.MenuItem;
 import data.objects.MenuCharacter;
-import data.objects.MenuCharacterFile;
+import data.objects.MenuCharacter.MenuCharacterFile;
 import data.objects.WireSprite;
 import data.objects.Floor;
 import data.objects.HealthIcon;
+import data.objects.SonicNumber;
 
 // Shaders
 import shaders.BlendModeEffect;
@@ -98,4 +99,4 @@ import shaders.WeedVision;
 import shaders.WiggleEffect;
 import shaders.WiggleEffect.WiggleEffectType;
 import shaders.ColorSwap;
-import shaders.ColorSwapShader;
+import shaders.ColorSwap.ColorSwapShader;
