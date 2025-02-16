@@ -1,4 +1,4 @@
-package;
+package substates.transitions;
 
 import flixel.addons.transition.TransitionSubstate;
 import flixel.addons.transition.FlxTransitionSprite.TransitionStatus;

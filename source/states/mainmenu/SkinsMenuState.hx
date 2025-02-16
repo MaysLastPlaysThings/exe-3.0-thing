@@ -1,4 +1,4 @@
-package mainmenu;
+package states.mainmenu;
 
 import sys.io.File;
 import flixel.text.FlxText;

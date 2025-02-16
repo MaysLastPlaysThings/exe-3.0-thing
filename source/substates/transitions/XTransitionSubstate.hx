@@ -1,4 +1,4 @@
-package;
+package substates.transitions;
 
 class XTransitionSubstate extends ShapeTransitionSubstate
 {

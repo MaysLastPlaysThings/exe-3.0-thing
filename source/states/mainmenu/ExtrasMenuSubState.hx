@@ -1,4 +1,4 @@
-package mainmenu;
+package states.mainmenu;
 
 import flixel.math.FlxMath;
 import flixel.tweens.FlxEase;
