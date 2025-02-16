@@ -24,6 +24,10 @@ import sys.FileSystem;
 import sys.io.File;
 #end
 import Type.ValueType;
+#if desktop
+import data.Discord;
+import data.Discord.DiscordClient;
+#end
 
 using StringTools;
 
