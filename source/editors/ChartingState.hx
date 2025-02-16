@@ -43,6 +43,7 @@ import flash.media.Sound;
 #end
 
 import data.backend.Character.CharacterFile;
+import data.backend.Character;
 
 using StringTools;
 
