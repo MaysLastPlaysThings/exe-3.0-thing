@@ -1823,7 +1823,7 @@ class ChartingState extends MusicBeatState
 		var rawJson = OpenFlAssets.getText(path);
 		#end
 
-		var json:Character.CharacterFile = cast Json.parse(rawJson);
+		var json:data.backend.Character.CharacterFile = cast Json.parse(rawJson);
 		return json.healthicon;
 	}
 
