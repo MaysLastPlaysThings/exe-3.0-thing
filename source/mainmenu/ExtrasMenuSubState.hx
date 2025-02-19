@@ -1,5 +1,6 @@
 package mainmenu;
 
+import flixel.util.FlxTimer;
 import flixel.math.FlxMath;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
@@ -30,6 +31,7 @@ class ExtrasMenuSubState extends MusicBeatSubstate
 	var menuObjects:FlxTypedSpriteGroup<FlxSprite> = new FlxTypedSpriteGroup();
 
 	var curSelected:Int = 0;
+	var canPress:Bool = false;
 
 	override public function new()
 	{
@@ -43,14 +45,18 @@ class ExtrasMenuSubState extends MusicBeatSubstate
 
 		for (i => item in menuItems)
 		{
-			var obj = new FlxSprite(FlxG.width * 10, 45 + (i * 100));
+			var obj = new FlxSprite(FlxG.width * 5, 45 + (i * 100));
 			obj.frames = Paths.getSparrowAtlas("mainmenu/extras/extras_" + item.name);
 			obj.animation.addByPrefix("idle", item.name + " basic");
 			obj.animation.addByPrefix("select", item.name + " white");
 			obj.animation.play("idle");
-			FlxTween.tween(obj, {x: 720 + (i * 75)}, 1 + (i * 0.25), {ease: FlxEase.expoInOut});
+			FlxTween.tween(obj, {x: 530 + (i * 75)}, 1 + (i * 0.25), {ease: FlxEase.expoInOut});
 			menuObjects.add(obj);
 		}
+
+		new FlxTimer().start(0.1, function(timer) { //stupid initalizing
+			canPress = true;
+		});
 
 		changeSelection();
 	}
@@ -63,7 +69,7 @@ class ExtrasMenuSubState extends MusicBeatSubstate
 			changeSelection(-1);
 		if (controls.UI_DOWN_P)
 			changeSelection(1);
-        if (controls.ACCEPT)
+        if (controls.ACCEPT && canPress)
             menuItems[curSelected].onPress();
 	}
 
