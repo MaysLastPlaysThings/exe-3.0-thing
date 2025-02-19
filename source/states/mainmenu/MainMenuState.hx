@@ -6,6 +6,7 @@ import flixel.tweens.FlxTween;
 import editors.MasterEditorMenu;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
+import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 import lime.app.Application;
 
 using StringTools;
