@@ -6961,7 +6961,7 @@ class PlayState extends MusicBeatState
 			video.visible = true;
 		}
 		#else
-		video.bitmap.onEndCallback.add(function()
+		video.bitmap.onEndReached.add(function()
 		{
          remove(video);
 		 video.destroy();
