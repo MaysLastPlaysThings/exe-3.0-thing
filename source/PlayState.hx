@@ -70,15 +70,19 @@ import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 import flixel.tweens.FlxTween.FlxTweenManager;
 import flixel.system.scaleModes.StageSizeScaleMode;
 import flixel.system.scaleModes.BaseScaleMode;
-#if (hxCodec == "2.6.0")
-import vlc.MP4Handler as VideoHandler;
-import vlc.MP4Sprite as VideoSprite;
+
+#if (hxCodec >= "3.0.0")
+import hxcodec.flixel.FlxVideo as VideoHandler;
+import hxcodec.flixel.FlxVideoSprite as VideoSprite;
 #elseif (hxCodec >= "2.6.1")
 import hxcodec.VideoHandler;
 import hxcodec.VideoSprite;
-#elseif (hxCodec >= "3.0.0")
-import hxcodec.flixel.FlxVideo as VideoHandler;
-import hxcodec.flixel.FlxVideoSprite as VideoSprite;
+#elseif (hxCodec == "2.6.0") 
+import VideoHandler;
+import VideoSprite;
+#else
+import vlc.MP4Handler as VideoHandler;
+import vlc.MP4Sprite as VideoSprite;
 #end
 
 using StringTools;
@@ -2350,9 +2354,14 @@ class PlayState extends MusicBeatState
 				inCutscene = true;
 
 				var video:VideoHandler = new VideoHandler();
+				#if (hxCodec =< "3.0.0")
 				video.canSkip = true;
 				video.finishCallback = startCountdown;
 				video.playVideo(Paths.video("cutscenes/" + daSong));
+				#else
+				video.onEndReached.add(startCountdown);
+				video.play(Paths.video("cutscenes/" + daSong));
+				#end
 		
 			case 'endless' | 'cycles' | 'prey' | 'fight-or-flight' | 'round-a-bout':
 				if (daSong == 'too-slow' || daSong == 'you-cant-run' || daSong == 'cycles')
@@ -2909,12 +2918,20 @@ class PlayState extends MusicBeatState
 		}
 
 		var video:VideoHandler = new VideoHandler();
+		#if (hxCodec =< "3.0.0")
 		video.playVideo(fileName);
 		video.finishCallback = function()
 		{
 			startAndEnd();
 			return;
 		}
+		#else
+	    video.play(fileName);
+		video.onEndReached.add(
+		startAndEnd();
+		return;
+		);
+		#end
 		#else
 		FlxG.log.warn('Platform not supported!');
 		startAndEnd();
@@ -6931,6 +6948,7 @@ class PlayState extends MusicBeatState
 		video.cameras = [camHUD];
 		video.shader = new GreenScreenShader();
 		video.visible = false;
+		#if (hxCodec =< "3.0.0)
 		video.finishCallback = function()
 		{
 			trace("video gone");
@@ -6938,10 +6956,20 @@ class PlayState extends MusicBeatState
 			video.destroy();
 		}
 		video.playVideo(Paths.video(name));
-		video.openingCallback = function()
+		video.bitmap.openingCallback = function()
 		{
 			video.visible = true;
 		}
+		#else
+		video.onEndCallback.add(function()
+		{
+         remove(video);
+		 video.destroy();
+		});
+		video.onOpening.add(function(){
+        video.visible = true;
+		});
+		#end
 		add(video);
 	}
 
