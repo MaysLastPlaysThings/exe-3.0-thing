@@ -60,7 +60,7 @@ class Intro extends MusicBeatState
 			FlxG.mouse.visible = false;
 
 			var video:VideoHandler = new VideoHandler();
-			#if (hxCodec =< "3.0.0")
+			#if (hxCodec >= "2.5.1")
 			video.canSkip = !fatalBool;
 			video.finishCallback = function()
 			{
@@ -88,7 +88,7 @@ class Intro extends MusicBeatState
 			}
 
 			video.playVideo(Paths.video(if (fatalBool) 'fatal1' else 'HaxeFlixelIntro'));
-			#else
+			#elseif (hxCodec >= "3.0.0")
 			video.onEndReached.add(function() {
 		    if (fatalBool) {
 			 FlxG.save.data.canGetFatal = false;

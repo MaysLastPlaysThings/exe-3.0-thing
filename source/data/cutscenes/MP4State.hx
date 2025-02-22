@@ -25,11 +25,11 @@ class MP4State extends FlxState {
         super.create();
 
         var video:VideoHandler = new VideoHandler();
-        #if (hxCodec =< "3.0.0")
+        #if (hxCodec >= "2.5.1")
         video.canSkip = canSkip;
         video.finishCallback = onComplete;
         video.playVideo(Paths.video(videoName));
-        #else
+        #elseif (hxCodec >= "3.0.0")
         video.onEndReached.add(onComplete);
         video.play(Paths.video(videoName));
         #end

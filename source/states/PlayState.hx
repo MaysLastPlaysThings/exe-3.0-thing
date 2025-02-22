@@ -2346,11 +2346,11 @@ class PlayState extends MusicBeatState
 				inCutscene = true;
 
 				var video:VideoHandler = new VideoHandler();
-				#if (hxCodec =< "3.0.0")
+				#if (hxCodec >= "2.5.1")
 				video.canSkip = true;
 				video.finishCallback = startCountdown;
 				video.playVideo(Paths.video("cutscenes/" + daSong));
-				#else
+				#elseif (hxCodec >= "3.0.0")
 				video.onEndReached.add(startCountdown);
 				video.play(Paths.video("cutscenes/" + daSong));
 				#end
@@ -2910,14 +2910,14 @@ class PlayState extends MusicBeatState
 		}
 
 		var video:VideoHandler = new VideoHandler();
-		#if (hxCodec =< "3.0.0")
+		#if (hxCodec >= "2.5.1")
 		video.playVideo(fileName);
 		video.finishCallback = function()
 		{
 			startAndEnd();
 			return;
 		}
-		#else
+		#elseif (hxCodec >= "3.0.0)
 	    video.play(fileName);
 		video.onEndReached.add(
 		startAndEnd();
@@ -6940,7 +6940,7 @@ class PlayState extends MusicBeatState
 		video.cameras = [camHUD];
 		video.shader = new GreenScreenShader();
 		video.visible = false;
-		#if (hxCodec =< "3.0.0)
+		#if (hxCodec >= "2.5.1")
 		video.finishCallback = function()
 		{
 			trace("video gone");
@@ -6952,7 +6952,7 @@ class PlayState extends MusicBeatState
 		{
 			video.visible = true;
 		}
-		#else
+		#elseif (hxCodec >= "3.0.0)
 		video.bitmap.onEndReached.add(function()
 		{
          remove(video);
