@@ -28,8 +28,10 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.app.Application;
 import openfl.Assets;
-
-import hxcodec.VideoHandler;
+#if (hxCodec >= "3.0.0") import hxcodec.flixel.FlxVideo as VideoHandler;
+#elseif (hxCodec >= "2.6.1") import hxcodec.VideoHandler as VideoHandler;
+#elseif (hxCodec == "2.6.0") import VideoHandler;
+#else import vlc.MP4Handler as VideoHandler; #end
 
 using StringTools;
 
@@ -58,6 +60,7 @@ class Intro extends MusicBeatState
 			FlxG.mouse.visible = false;
 
 			var video:VideoHandler = new VideoHandler();
+			#if (hxCodec =< "3.0.0")
 			video.canSkip = !fatalBool;
 			video.finishCallback = function()
 			{
@@ -85,6 +88,30 @@ class Intro extends MusicBeatState
 			}
 
 			video.playVideo(Paths.video(if (fatalBool) 'fatal1' else 'HaxeFlixelIntro'));
+			#else
+			video.onEndReached.add(function() {
+		    if (fatalBool) {
+			 FlxG.save.data.canGetFatal = false;
+			 FlxG.save.flush();
+		     Sys.exit(1);
+			}
+             FlxG.sound.muteKeys = TitleState.muteKeys;
+		     FlxG.sound.volumeDownKeys = TitleState.volumeDownKeys;
+		     FlxG.sound.volumeUpKeys = TitleState.volumeUpKeys;
+		     FlxTween.tween(div, {alpha: 1}, 3.4, {
+			  ease: FlxEase.quadInOut,
+			  onComplete: function(twn:FlxTween) {
+		     FlxTween.tween(div, {alpha: 0}, 3.4, {
+			  ease: FlxEase.quadInOut,
+		      onComplete: function(twn:FlxTween) {
+			   MusicBeatState.switchState(new TitleState());
+				}
+			  });
+		     }
+		  });
+	    });
+      video.play(Paths.video(if (fatalBool) 'fatal1' else 'HaxeFlixelIntro'));
+			#end
 		}
 	}
 }
