@@ -71,19 +71,8 @@ import flixel.tweens.FlxTween.FlxTweenManager;
 import flixel.system.scaleModes.StageSizeScaleMode;
 import flixel.system.scaleModes.BaseScaleMode;
 
-#if (hxCodec >= "3.0.0")
-import hxcodec.flixel.FlxVideo as VideoHandler;
-import hxcodec.flixel.FlxVideoSprite as VideoSprite;
-#elseif (hxCodec >= "2.6.1")
 import hxcodec.VideoHandler;
 import hxcodec.VideoSprite;
-#elseif (hxCodec == "2.6.0") 
-import VideoHandler;
-import VideoSprite;
-#else
-import vlc.MP4Handler as VideoHandler;
-import vlc.MP4Sprite as VideoSprite;
-#end
 
 using StringTools;
 
@@ -2918,20 +2907,12 @@ class PlayState extends MusicBeatState
 		}
 
 		var video:VideoHandler = new VideoHandler();
-		#if (hxCodec >= "2.5.1")
 		video.playVideo(fileName);
 		video.finishCallback = function()
 		{
 			startAndEnd();
 			return;
 		}
-		#elseif (hxCodec >= "3.0.0)
-	    video.play(fileName);
-		video.onEndReached.add(
-		startAndEnd();
-		return;
-		);
-		#end
 		#else
 		FlxG.log.warn('Platform not supported!');
 		startAndEnd();
@@ -6948,7 +6929,6 @@ class PlayState extends MusicBeatState
 		video.cameras = [camHUD];
 		video.shader = new GreenScreenShader();
 		video.visible = false;
-		#if (hxCodec >= "2.5.1")
 		video.finishCallback = function()
 		{
 			trace("video gone");
@@ -6960,16 +6940,6 @@ class PlayState extends MusicBeatState
 		{
 			video.visible = true;
 		}
-		#elseif (hxCodec >= "3.0.0)
-		video.bitmap.onEndReached.add(function()
-		{
-         remove(video);
-		 video.destroy();
-		});
-		video.bitmap.onOpening.add(function(){
-        video.visible = true;
-		});
-		#end
 		add(video);
 	}
 
