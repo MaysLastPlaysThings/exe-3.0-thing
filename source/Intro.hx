@@ -30,7 +30,7 @@ import flixel.util.FlxTimer;
 import lime.app.Application;
 import openfl.Assets;
 
-import hxcodec.VideoHandler as VideoHandler;
+import hxcodec.VideoHandler;
 
 using StringTools;
 
