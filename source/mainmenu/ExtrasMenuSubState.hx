@@ -1,5 +1,6 @@
 package mainmenu;
 
+import flixel.effects.FlxFlicker;
 import flixel.util.FlxTimer;
 import flixel.math.FlxMath;
 import flixel.tweens.FlxEase;
@@ -13,6 +14,13 @@ import flixel.FlxCamera;
 class ExtrasMenuSubState extends MusicBeatSubstate
 {
 	var menuItems:Array<Dynamic> = [
+		{
+			name: "garden",
+			onPress: function()
+			{
+				FlxG.state.openSubState(new DAGardenSubState());
+			}
+		},
 		{
 			name: "skins",
 			onPress: function()
@@ -54,7 +62,8 @@ class ExtrasMenuSubState extends MusicBeatSubstate
 			menuObjects.add(obj);
 		}
 
-		new FlxTimer().start(0.1, function(timer) { //stupid initalizing
+		new FlxTimer().start(0.1, function(timer)
+		{ // stupid initalizing
 			canPress = true;
 		});
 
@@ -69,8 +78,24 @@ class ExtrasMenuSubState extends MusicBeatSubstate
 			changeSelection(-1);
 		if (controls.UI_DOWN_P)
 			changeSelection(1);
-        if (controls.ACCEPT && canPress)
-            menuItems[curSelected].onPress();
+		if (controls.ACCEPT && canPress)
+		{
+			canPress = false;
+
+			for (i => obj in menuObjects.members)
+				if (i != curSelected)
+					FlxTween.tween(obj, {alpha: 0}, 0.4, {onComplete: function(tween)
+					{
+						obj.kill();
+					}});
+				else
+					FlxFlicker.flicker(obj, 1, 0.04, false, true);
+
+			new FlxTimer().start(1, function(timer)
+			{
+				menuItems[curSelected].onPress();
+			});
+		}
 	}
 
 	function changeSelection(amt:Int = 0)

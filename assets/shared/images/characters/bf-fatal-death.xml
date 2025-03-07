@@ -1,97 +1,58 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <TextureAtlas imagePath="bf-fatal-death.png">
-	<!-- Created with Adobe Animate version 22.0.0.93 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="Fatal bf game over begin0000" x="0" y="0" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0001" x="136" y="0" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0002" x="272" y="0" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0003" x="408" y="0" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0004" x="544" y="0" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0005" x="680" y="0" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0006" x="816" y="0" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0007" x="952" y="0" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0008" x="1088" y="0" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0009" x="1224" y="0" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0010" x="1360" y="0" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0011" x="1496" y="0" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0012" x="1632" y="0" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0013" x="1768" y="0" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0014" x="1904" y="0" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0015" x="0" y="135" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0016" x="136" y="135" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0017" x="272" y="135" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0018" x="408" y="135" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0019" x="544" y="135" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0020" x="680" y="135" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0021" x="816" y="135" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0022" x="952" y="135" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0023" x="1088" y="135" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0024" x="1224" y="135" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0025" x="1360" y="135" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0026" x="1496" y="135" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0027" x="1632" y="135" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0028" x="1768" y="135" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0029" x="1904" y="135" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0030" x="0" y="270" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0031" x="136" y="270" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0032" x="272" y="270" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0033" x="408" y="270" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0034" x="544" y="270" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0035" x="680" y="270" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0036" x="816" y="270" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0037" x="952" y="270" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0038" x="1088" y="270" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0039" x="1224" y="270" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0040" x="1360" y="270" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0041" x="1496" y="270" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0042" x="1632" y="270" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0043" x="1768" y="270" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0044" x="1904" y="270" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0045" x="0" y="405" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0046" x="136" y="405" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0047" x="272" y="405" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0048" x="408" y="405" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0049" x="544" y="405" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0050" x="680" y="405" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0051" x="816" y="405" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0052" x="952" y="405" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0053" x="1088" y="405" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0054" x="1224" y="405" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0055" x="1360" y="405" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0056" x="1496" y="405" width="136" height="135"/>
-	<SubTexture name="Fatal bf game over begin0057" x="1632" y="405" width="136" height="135"/>
-	<SubTexture name="fatal bf game over looping0000" x="1768" y="405" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0001" x="0" y="677" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0002" x="192" y="677" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0003" x="384" y="677" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0004" x="576" y="677" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0005" x="768" y="677" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0006" x="960" y="677" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0007" x="1152" y="677" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0008" x="1344" y="677" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0009" x="1536" y="677" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0010" x="1728" y="677" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0011" x="0" y="949" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0012" x="192" y="949" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0013" x="384" y="949" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0014" x="576" y="949" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0015" x="768" y="949" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0016" x="960" y="949" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0017" x="1152" y="949" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0018" x="1344" y="949" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0019" x="1536" y="949" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0020" x="1728" y="949" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0021" x="0" y="1221" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0022" x="192" y="1221" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0023" x="384" y="1221" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0024" x="576" y="1221" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0025" x="768" y="1221" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0026" x="960" y="1221" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0027" x="1152" y="1221" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0028" x="1344" y="1221" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0029" x="1536" y="1221" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0030" x="1728" y="1221" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0031" x="0" y="1493" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0032" x="192" y="1493" width="192" height="272"/>
-	<SubTexture name="fatal bf game over looping0033" x="384" y="1493" width="192" height="272"/>
+<SubTexture name="Fatal bf game over begin0000" x="913" y="250" width="119" height="114" frameX="-3" frameY="-19" frameWidth="136" frameHeight="135" />
+<SubTexture name="Fatal bf game over begin0001" x="913" y="128" width="121" height="122" frameX="-5" frameY="-11" frameWidth="136" frameHeight="135" />
+<SubTexture name="Fatal bf game over begin0002" x="913" y="0" width="123" height="128" frameX="-6" frameY="-5" frameWidth="136" frameHeight="135" />
+<SubTexture name="Fatal bf game over begin0003" x="640" y="777" width="126" height="131" frameX="-6" frameY="-2" frameWidth="136" frameHeight="135" />
+<SubTexture name="Fatal bf game over begin0004" x="766" y="777" width="129" height="131" frameX="-6" frameY="-2" frameWidth="136" frameHeight="135" />
+<SubTexture name="Fatal bf game over begin0005" x="785" y="0" width="128" height="132" frameX="-6" frameY="-1" frameWidth="136" frameHeight="135" />
+<SubTexture name="Fatal bf game over begin0006" x="785" y="132" width="128" height="132" frameX="-6" frameY="-1" frameWidth="136" frameHeight="135" />
+<SubTexture name="Fatal bf game over begin0007" x="785" y="264" width="128" height="132" frameX="-6" frameY="-1" frameWidth="136" frameHeight="135" />
+<SubTexture name="Fatal bf game over begin0008" x="785" y="396" width="128" height="132" frameX="-6" frameY="-1" frameWidth="136" frameHeight="135" />
+<SubTexture name="Fatal bf game over begin0009" x="785" y="528" width="128" height="132" frameX="-6" frameY="-1" frameWidth="136" frameHeight="135" />
+<SubTexture name="Fatal bf game over begin0010" x="0" y="777" width="128" height="132" frameX="-6" frameY="-1" frameWidth="136" frameHeight="135" />
+<SubTexture name="Fatal bf game over begin0011" x="128" y="777" width="128" height="132" frameX="-6" frameY="-1" frameWidth="136" frameHeight="135" />
+<SubTexture name="Fatal bf game over begin0012" x="256" y="777" width="128" height="132" frameX="-6" frameY="-1" frameWidth="136" frameHeight="135" />
+<SubTexture name="Fatal bf game over begin0013" x="384" y="777" width="128" height="132" frameX="-6" frameY="-1" frameWidth="136" frameHeight="135" />
+<SubTexture name="Fatal bf game over begin0014" x="512" y="777" width="128" height="132" frameX="-6" frameY="-1" frameWidth="136" frameHeight="135" />
+<SubTexture name="Fatal bf game over begin0015" x="512" y="777" width="128" height="132" frameX="-6" frameY="-1" frameWidth="136" frameHeight="135" />
+<SubTexture name="Fatal bf game over begin0016" x="512" y="777" width="128" height="132" frameX="-6" frameY="-1" frameWidth="136" frameHeight="135" />
+<SubTexture name="Fatal bf game over begin0017" x="512" y="777" width="128" height="132" frameX="-6" frameY="-1" frameWidth="136" frameHeight="135" />
+<SubTexture name="Fatal bf game over begin0018" x="512" y="777" width="128" height="132" frameX="-6" frameY="-1" frameWidth="136" frameHeight="135" />
+<SubTexture name="Fatal bf game over begin0019" x="512" y="777" width="128" height="132" frameX="-6" frameY="-1" frameWidth="136" frameHeight="135" />
+<SubTexture name="Fatal bf game over begin0020" x="512" y="777" width="128" height="132" frameX="-6" frameY="-1" frameWidth="136" frameHeight="135" />
+<SubTexture name="fatal bf game over looping0000" x="559" y="0" width="113" height="256" frameX="-66" frameY="-8" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0001" x="559" y="256" width="113" height="256" frameX="-66" frameY="-8" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0002" x="223" y="0" width="111" height="260" frameX="-66" frameY="-4" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0003" x="334" y="0" width="111" height="260" frameX="-66" frameY="-4" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0004" x="0" y="0" width="110" height="261" frameX="-66" frameY="-3" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0005" x="110" y="0" width="113" height="261" frameX="-63" frameY="-3" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0006" x="445" y="0" width="114" height="260" frameX="-63" frameY="-4" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0007" x="0" y="261" width="111" height="260" frameX="-66" frameY="-4" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0008" x="672" y="0" width="113" height="256" frameX="-66" frameY="-8" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0009" x="672" y="256" width="113" height="256" frameX="-66" frameY="-8" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0010" x="111" y="261" width="113" height="257" frameX="-66" frameY="-7" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0011" x="224" y="261" width="113" height="257" frameX="-66" frameY="-7" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0012" x="117" y="521" width="115" height="254" frameX="-66" frameY="-10" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0013" x="232" y="521" width="119" height="254" frameX="-62" frameY="-10" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0014" x="351" y="521" width="119" height="251" frameX="-62" frameY="-13" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0015" x="470" y="521" width="115" height="251" frameX="-66" frameY="-13" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0016" x="585" y="521" width="115" height="250" frameX="-66" frameY="-14" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0017" x="559" y="0" width="113" height="256" frameX="-66" frameY="-8" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0018" x="559" y="256" width="113" height="256" frameX="-66" frameY="-8" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0019" x="223" y="0" width="111" height="260" frameX="-66" frameY="-4" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0020" x="334" y="0" width="111" height="260" frameX="-66" frameY="-4" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0021" x="0" y="0" width="110" height="261" frameX="-66" frameY="-3" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0022" x="110" y="0" width="113" height="261" frameX="-63" frameY="-3" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0023" x="445" y="0" width="114" height="260" frameX="-63" frameY="-4" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0024" x="0" y="261" width="111" height="260" frameX="-66" frameY="-4" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0025" x="672" y="0" width="113" height="256" frameX="-66" frameY="-8" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0026" x="0" y="521" width="117" height="256" frameX="-62" frameY="-8" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0027" x="337" y="261" width="117" height="257" frameX="-62" frameY="-7" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0028" x="224" y="261" width="113" height="257" frameX="-66" frameY="-7" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0029" x="117" y="521" width="115" height="254" frameX="-66" frameY="-10" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0030" x="232" y="521" width="119" height="254" frameX="-62" frameY="-10" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0031" x="351" y="521" width="119" height="251" frameX="-62" frameY="-13" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0032" x="470" y="521" width="115" height="251" frameX="-66" frameY="-13" frameWidth="192" frameHeight="272" />
+<SubTexture name="fatal bf game over looping0033" x="585" y="521" width="115" height="250" frameX="-66" frameY="-14" frameWidth="192" frameHeight="272" />
 </TextureAtlas>

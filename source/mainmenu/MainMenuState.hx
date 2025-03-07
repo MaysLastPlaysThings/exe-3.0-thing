@@ -1,5 +1,7 @@
 package mainmenu;
 
+import flixel.util.FlxTimer;
+import flixel.effects.FlxFlicker;
 import flixel.math.FlxMath;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
@@ -107,8 +109,12 @@ class MainMenuState extends MusicBeatState
 			for (i => obj in menuObjects.members)
 				if (i != curSelected)
 					FlxTween.tween(obj, {alpha: 0}, 0.4, {onComplete: function(tween){obj.kill();}});
+				else
+					FlxFlicker.flicker(obj, 1, 0.04, false, true);
 
-            menuItems[curSelected].onPress();
+			new FlxTimer().start(1, function(timer) {
+				menuItems[curSelected].onPress();
+			});
 		}
 	}
 

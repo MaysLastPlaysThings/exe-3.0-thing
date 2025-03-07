@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="ycr_sonic_sheet.png" width="113" height="117">
+	<SubTexture name="ycr sonic down0000" x="29" y="39" width="29" height="38" frameX="-4" frameY="-10" frameWidth="35" frameHeight="50"/>
+	<SubTexture name="ycr sonic down0001" x="29" y="39" width="29" height="38" frameX="-4" frameY="-10" frameWidth="35" frameHeight="50"/>
+	<SubTexture name="ycr sonic down0002" x="58" y="0" width="28" height="39" frameX="-4" frameY="-9" frameWidth="35" frameHeight="50"/>
+	<SubTexture name="ycr sonic down0003" x="58" y="0" width="28" height="39" frameX="-4" frameY="-9" frameWidth="35" frameHeight="50"/>
+	<SubTexture name="ycr sonic idle0000" x="0" y="0" width="29" height="40" frameX="-4" frameY="-4" frameWidth="37" frameHeight="47"/>
+	<SubTexture name="ycr sonic idle0001" x="0" y="0" width="29" height="40" frameX="-4" frameY="-4" frameWidth="37" frameHeight="47"/>
+	<SubTexture name="ycr sonic idle0002" x="83" y="78" width="28" height="37" frameX="-6" frameY="-7" frameWidth="37" frameHeight="47"/>
+	<SubTexture name="ycr sonic idle0003" x="83" y="78" width="28" height="37" frameX="-6" frameY="-7" frameWidth="37" frameHeight="47"/>
+	<SubTexture name="ycr sonic idle0004" x="0" y="78" width="28" height="38" frameX="-5" frameY="-6" frameWidth="37" frameHeight="47"/>
+	<SubTexture name="ycr sonic idle0005" x="0" y="78" width="28" height="38" frameX="-5" frameY="-6" frameWidth="37" frameHeight="47"/>
+	<SubTexture name="ycr sonic idle0006" x="29" y="0" width="29" height="39" frameX="-4" frameY="-5" frameWidth="37" frameHeight="47"/>
+	<SubTexture name="ycr sonic idle0007" x="29" y="0" width="29" height="39" frameX="-4" frameY="-5" frameWidth="37" frameHeight="47"/>
+	<SubTexture name="ycr sonic idle0008" x="0" y="0" width="29" height="40" frameX="-4" frameY="-4" frameWidth="37" frameHeight="47"/>
+	<SubTexture name="ycr sonic left0000" x="0" y="40" width="29" height="38" frameX="-4" frameY="-10" frameWidth="35" frameHeight="50"/>
+	<SubTexture name="ycr sonic left0001" x="0" y="40" width="29" height="38" frameX="-4" frameY="-10" frameWidth="35" frameHeight="50"/>
+	<SubTexture name="ycr sonic left0002" x="56" y="78" width="27" height="39" frameX="-5" frameY="-9" frameWidth="35" frameHeight="50"/>
+	<SubTexture name="ycr sonic left0003" x="56" y="78" width="27" height="39" frameX="-5" frameY="-9" frameWidth="35" frameHeight="50"/>
+	<SubTexture name="ycr sonic right0000" x="86" y="38" width="27" height="37" frameX="-5" frameY="-11" frameWidth="35" frameHeight="50"/>
+	<SubTexture name="ycr sonic right0001" x="86" y="38" width="27" height="37" frameX="-5" frameY="-11" frameWidth="35" frameHeight="50"/>
+	<SubTexture name="ycr sonic right0002" x="86" y="0" width="27" height="38" frameX="-5" frameY="-10" frameWidth="35" frameHeight="50"/>
+	<SubTexture name="ycr sonic right0003" x="86" y="0" width="27" height="38" frameX="-5" frameY="-10" frameWidth="35" frameHeight="50"/>
+	<SubTexture name="ycr sonic up0000" x="29" y="77" width="27" height="40" frameX="-4" frameY="-8" frameWidth="35" frameHeight="50"/>
+	<SubTexture name="ycr sonic up0001" x="29" y="77" width="27" height="40" frameX="-4" frameY="-8" frameWidth="35" frameHeight="50"/>
+	<SubTexture name="ycr sonic up0002" x="58" y="39" width="28" height="39" frameX="-4" frameY="-9" frameWidth="35" frameHeight="50"/>
+	<SubTexture name="ycr sonic up0003" x="58" y="39" width="28" height="39" frameX="-4" frameY="-9" frameWidth="35" frameHeight="50"/>
+</TextureAtlas>

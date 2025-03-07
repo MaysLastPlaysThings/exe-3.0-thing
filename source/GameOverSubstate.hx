@@ -13,7 +13,14 @@ import flixel.text.FlxText;
 import flixel.FlxSprite;
 import flixel.FlxCamera;
 import sys.FileSystem;
+#if (hxCodec == "2.6.0")
+import vlc.MP4Handler as VideoHandler;
+#elseif (hxCodec >= "2.6.1")
 import hxcodec.VideoHandler;
+#elseif (hxCodec >= "3.0.0")
+import hxcodec.flixel.FlxVideo as VideoHandler;
+#end
+
 
 class GameOverSubstate extends MusicBeatSubstate
 {

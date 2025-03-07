@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="ring_cursour.png">
+<SubTexture name="idle idle0000" x="0" y="668" width="340" height="334" frameX="-79" frameY="0" frameWidth="498" frameHeight="334" />
+<SubTexture name="idle idle0001" x="726" y="0" width="298" height="334" frameX="-93" frameY="0" frameWidth="498" frameHeight="334" />
+<SubTexture name="idle idle0002" x="258" y="334" width="256" height="334" frameX="-115" frameY="0" frameWidth="498" frameHeight="334" />
+<SubTexture name="idle idle0003" x="88" y="334" width="170" height="334" frameX="-157" frameY="0" frameWidth="498" frameHeight="334" />
+<SubTexture name="idle idle0004" x="0" y="334" width="88" height="334" frameX="-198" frameY="0" frameWidth="498" frameHeight="334" />
+<SubTexture name="idle idle0005" x="556" y="0" width="170" height="334" frameX="-157" frameY="0" frameWidth="498" frameHeight="334" />
+<SubTexture name="idle idle0006" x="300" y="0" width="256" height="334" frameX="-121" frameY="0" frameWidth="498" frameHeight="334" />
+<SubTexture name="idle idle0007" x="0" y="0" width="300" height="334" frameX="-99" frameY="0" frameWidth="498" frameHeight="334" />
+</TextureAtlas>
